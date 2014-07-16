@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117819767E9E004D04CE /* AppDelegate.swift */; };
+		CA92117B19767E9E004D04CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117A19767E9E004D04CE /* ViewController.swift */; };
+		CA92117E19767E9E004D04CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA92117C19767E9E004D04CE /* Main.storyboard */; };
+		CA92118019767E9E004D04CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA92117F19767E9E004D04CE /* Images.xcassets */; };
+		CA92118C19767E9E004D04CE /* IlluminatiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92118B19767E9E004D04CE /* IlluminatiTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA92118619767E9E004D04CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA92116B19767E9D004D04CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA92117219767E9E004D04CE;
+			remoteInfo = Illuminati;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA92117319767E9E004D04CE /* Illuminati.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Illuminati.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA92117719767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA92117819767E9E004D04CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA92117A19767E9E004D04CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA92117D19767E9E004D04CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA92117F19767E9E004D04CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CA92118519767E9E004D04CE /* IlluminatiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IlluminatiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA92118A19767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA92118B19767E9E004D04CE /* IlluminatiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlluminatiTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA92117019767E9E004D04CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA92118219767E9E004D04CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA92116A19767E9D004D04CE = {
+			isa = PBXGroup;
+			children = (
+				CA92117519767E9E004D04CE /* Illuminati */,
+				CA92118819767E9E004D04CE /* IlluminatiTests */,
+				CA92117419767E9E004D04CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA92117419767E9E004D04CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA92117319767E9E004D04CE /* Illuminati.app */,
+				CA92118519767E9E004D04CE /* IlluminatiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA92117519767E9E004D04CE /* Illuminati */ = {
+			isa = PBXGroup;
+			children = (
+				CA92117819767E9E004D04CE /* AppDelegate.swift */,
+				CA92117A19767E9E004D04CE /* ViewController.swift */,
+				CA92117C19767E9E004D04CE /* Main.storyboard */,
+				CA92117F19767E9E004D04CE /* Images.xcassets */,
+				CA92117619767E9E004D04CE /* Supporting Files */,
+			);
+			path = Illuminati;
+			sourceTree = "<group>";
+		};
+		CA92117619767E9E004D04CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA92117719767E9E004D04CE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA92118819767E9E004D04CE /* IlluminatiTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA92118B19767E9E004D04CE /* IlluminatiTests.swift */,
+				CA92118919767E9E004D04CE /* Supporting Files */,
+			);
+			path = IlluminatiTests;
+			sourceTree = "<group>";
+		};
+		CA92118919767E9E004D04CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA92118A19767E9E004D04CE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA92117219767E9E004D04CE /* Illuminati */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA92118F19767E9E004D04CE /* Build configuration list for PBXNativeTarget "Illuminati" */;
+			buildPhases = (
+				CA92116F19767E9E004D04CE /* Sources */,
+				CA92117019767E9E004D04CE /* Frameworks */,
+				CA92117119767E9E004D04CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Illuminati;
+			productName = Illuminati;
+			productReference = CA92117319767E9E004D04CE /* Illuminati.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA92118419767E9E004D04CE /* IlluminatiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA92119219767E9E004D04CE /* Build configuration list for PBXNativeTarget "IlluminatiTests" */;
+			buildPhases = (
+				CA92118119767E9E004D04CE /* Sources */,
+				CA92118219767E9E004D04CE /* Frameworks */,
+				CA92118319767E9E004D04CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA92118719767E9E004D04CE /* PBXTargetDependency */,
+			);
+			name = IlluminatiTests;
+			productName = IlluminatiTests;
+			productReference = CA92118519767E9E004D04CE /* IlluminatiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA92116B19767E9D004D04CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Gosha Arinich";
+				TargetAttributes = {
+					CA92117219767E9E004D04CE = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					CA92118419767E9E004D04CE = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = CA92117219767E9E004D04CE;
+					};
+				};
+			};
+			buildConfigurationList = CA92116E19767E9D004D04CE /* Build configuration list for PBXProject "Illuminati" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA92116A19767E9D004D04CE;
+			productRefGroup = CA92117419767E9E004D04CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA92117219767E9E004D04CE /* Illuminati */,
+				CA92118419767E9E004D04CE /* IlluminatiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA92117119767E9E004D04CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA92117E19767E9E004D04CE /* Main.storyboard in Resources */,
+				CA92118019767E9E004D04CE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA92118319767E9E004D04CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA92116F19767E9E004D04CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA92117B19767E9E004D04CE /* ViewController.swift in Sources */,
+				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA92118119767E9E004D04CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA92118C19767E9E004D04CE /* IlluminatiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA92118719767E9E004D04CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA92117219767E9E004D04CE /* Illuminati */;
+			targetProxy = CA92118619767E9E004D04CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA92117C19767E9E004D04CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA92117D19767E9E004D04CE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA92118D19767E9E004D04CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA92118E19767E9E004D04CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA92119019767E9E004D04CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Illuminati/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA92119119767E9E004D04CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Illuminati/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA92119319767E9E004D04CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Illuminati.app/Illuminati";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IlluminatiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		CA92119419767E9E004D04CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Illuminati.app/Illuminati";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IlluminatiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA92116E19767E9D004D04CE /* Build configuration list for PBXProject "Illuminati" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA92118D19767E9E004D04CE /* Debug */,
+				CA92118E19767E9E004D04CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA92118F19767E9E004D04CE /* Build configuration list for PBXNativeTarget "Illuminati" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA92119019767E9E004D04CE /* Debug */,
+				CA92119119767E9E004D04CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA92119219767E9E004D04CE /* Build configuration list for PBXNativeTarget "IlluminatiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA92119319767E9E004D04CE /* Debug */,
+				CA92119419767E9E004D04CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA92116B19767E9D004D04CE /* Project object */;
+}
