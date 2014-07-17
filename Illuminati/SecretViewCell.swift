@@ -18,14 +18,21 @@ class SecretViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
+    var secret: Secret
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+    init(secret: Secret, style: UITableViewCellStyle, reuseIdentifier: String) {
+        self.secret = secret
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundView = UIView()
         selectionStyle = .None
         
         contentView.addSubview(captionLabel)
+        
+        RAC(captionLabel, "text") <~ (secret ~~ "caption")
+        RAC(backgroundView, "backgroundColor") <~ (secret ~~ "background")
         
         RAC(captionLabel, "textColor") <~ (backgroundView ~~ "backgroundColor")
             .ignore(nil)

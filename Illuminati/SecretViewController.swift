@@ -11,7 +11,7 @@ import UIKit
 class SecretViewController: UITableViewController {
     
     @lazy var secretView: SecretViewCell = {
-        let view = SecretViewCell(style: .Default, reuseIdentifier: "HDR")
+        let view = SecretViewCell(secret: self.secret, style: .Default, reuseIdentifier: "HDR")
         view.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         return view
     }()
@@ -33,12 +33,10 @@ class SecretViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: "close")
         
         tableView.separatorStyle = .None
+        tableView.alwaysBounceVertical = false
         tableView.tableHeaderView = secretView
         
         automaticallyAdjustsScrollViewInsets = false
-        
-        RAC(secretView.captionLabel, "text") <~ (secret ~~ "caption")
-        RAC(secretView.backgroundView, "backgroundColor") <~ (secret ~~ "background")
     }
     
     override func prefersStatusBarHidden() -> Bool {

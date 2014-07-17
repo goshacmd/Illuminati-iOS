@@ -55,11 +55,8 @@ class SecretsViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? SecretViewCell
         
         if !cell {
-            let newCell = SecretViewCell(style: .Default, reuseIdentifier: cellID)
             let secret = secrets[indexPath.item]
-            
-            newCell.captionLabel.text = secret.caption
-            newCell.backgroundView.backgroundColor = secret.background
+            let newCell = SecretViewCell(secret: secret, style: .Default, reuseIdentifier: cellID)
             
             cell = newCell
         }
