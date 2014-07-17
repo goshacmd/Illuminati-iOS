@@ -26,10 +26,16 @@ class SecretViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
+        navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.translucent = true
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: "close")
         
         tableView.separatorStyle = .None
         tableView.tableHeaderView = secretView
+        
+        automaticallyAdjustsScrollViewInsets = false
         
         RAC(secretView.captionLabel, "text") <~ (secret ~~ "caption")
         RAC(secretView.backgroundView, "backgroundColor") <~ (secret ~~ "background")
@@ -39,7 +45,7 @@ class SecretViewController: UITableViewController {
         return true
     }
     
-    func cancel() {
+    func close() {
         navigationController.dismissViewControllerAnimated(true, completion: nil)
     }
     
