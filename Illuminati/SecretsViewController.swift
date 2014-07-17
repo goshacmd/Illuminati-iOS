@@ -74,7 +74,7 @@ class SecretsViewController: UITableViewController {
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         let secret = secrets[indexPath.item]
         
-        let secretVC = SecretViewController(style: .Grouped)
+        let secretVC = SecretViewController(secret: secret)
         let nav = UINavigationController(rootViewController: secretVC)
         nav.modalPresentationStyle = .FullScreen
         

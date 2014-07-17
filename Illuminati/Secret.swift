@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Secret {
+class Secret: NSObject {
     
     var caption: String
     var background: UIColor

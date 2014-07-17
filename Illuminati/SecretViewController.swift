@@ -10,14 +10,29 @@ import UIKit
 
 class SecretViewController: UITableViewController {
     
-    let secret = Secret(caption: "My first secret...", background: UIColor.yellowColor())
+    @lazy var secretView: SecretViewCell = {
+        let view = SecretViewCell(style: .Default, reuseIdentifier: "HDR")
+        view.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        return view
+    }()
+    
+    var secret: Secret
+    
+    init(secret: Secret) {
+        self.secret = secret
+        super.init(nibName: nil, bundle: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
         
-//        tableView.separatorStyle = .None
+        tableView.separatorStyle = .None
+        tableView.tableHeaderView = secretView
+        
+        RAC(secretView.captionLabel, "text") <~ (secret ~~ "caption")
+        RAC(secretView.backgroundView, "backgroundColor") <~ (secret ~~ "background")
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -29,7 +44,7 @@ class SecretViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -37,42 +52,20 @@ class SecretViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
-        if indexPath.section == 0 {
-            let cellID = "secretCell"
+        let cellID = "commentCell"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+        
+        if !cell {
+            let newCell = UITableViewCell(style: .Default, reuseIdentifier: cellID)
             
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? SecretViewCell
+            newCell.textLabel.text = "Demo comment"
+            newCell.selectionStyle = .None
             
-            if !cell {
-                let newCell = SecretViewCell(style: .Default, reuseIdentifier: cellID)
-                
-                newCell.captionLabel.text = secret.caption
-                newCell.backgroundView.backgroundColor = secret.background
-                newCell.selectionStyle = .None
-                
-                cell = newCell
-            }
-            
-            return cell
-        } else {
-            let cellID = "commentCell"
-            
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-            
-            if !cell {
-                let newCell = UITableViewCell(style: .Default, reuseIdentifier: cellID)
-                
-                newCell.textLabel.text = "Demo comment"
-                newCell.selectionStyle = .None
-                
-                cell = newCell
-            }
-            
-            return cell
+            cell = newCell
         }
-    }
-    
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return indexPath.section == 0 ? UIScreen.mainScreen().bounds.width : super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        
+        return cell
     }
 
 }
