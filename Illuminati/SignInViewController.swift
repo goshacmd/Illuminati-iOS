@@ -38,12 +38,13 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         label.numberOfLines = 0
         label.textAlignment = .Center
         label.textColor = UIColor.grayColor()
-        label.font = UIFont.systemFontOfSize(11)
+        label.font = UIFont.systemFontOfSize(16)
         return label
     }()
     
     @lazy var footerButton: UIButton = {
         let button = UIButton.borderedButton().noMask()
+        button.titleLabel.font = UIFont.systemFontOfSize(16)
         
         return button
     }()
@@ -52,13 +53,13 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         let button = UIButton.buttonWithType(.System).noMask() as UIButton
         button.setTitleColor(UIColor.grayColor(), forState: .Normal)
         button.titleLabel.textAlignment = .Center
-        button.titleLabel.font = UIFont.systemFontOfSize(10)
+        button.titleLabel.font = UIFont.systemFontOfSize(14)
         
         return button
     }()
     
-    @lazy var hw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
-    @lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 80))
+    @lazy var hw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+    @lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
     
     @lazy var emailTextField: UITextField = {
         let field = UITextField().noMask()

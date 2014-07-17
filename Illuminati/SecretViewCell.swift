@@ -78,7 +78,7 @@ class SecretViewCell: UITableViewCell {
         contentView.addConstraints("|-(>=0)-[likes]-(labelSpace)-[comments]-(margin)-|" %%% (nil, metrics, views))
         contentView.addConstraints("V:|-(margin)-[caption]-(margin)-|" %%% (nil, metrics, views))
         contentView.addConstraints("V:[likes]-(margin)-|" %%% (nil, metrics, views))
-        contentView.addConstraints("V:[comments]-(margin)-|" %%% (nil, metrics, views))
+        contentView.addConstraint(NSLayoutConstraint(item: commentCountLabel, attribute: .Baseline, relatedBy: .Equal, toItem: likeCountLabel, attribute: .Baseline, multiplier: 1, constant: 0))
     }
     
     func textColorForBackground(color: UIColor) -> UIColor {
