@@ -68,6 +68,16 @@ class SecretsViewController: UITableViewController {
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat  {
         return UIScreen.mainScreen().bounds.width
     }
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)  {
+        let secret = secrets[indexPath.item]
+        
+        let secretVC = SecretViewController()
+        let nav = UINavigationController(rootViewController: secretVC)
+        nav.modalPresentationStyle = .FullScreen
+        
+        self.navigationController.presentViewController(nav, animated: true, completion: nil)
+    }
 
 }
 

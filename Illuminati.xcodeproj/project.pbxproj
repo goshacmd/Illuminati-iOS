@@ -14,6 +14,7 @@
 		CA02725F1977BA6700DB4787 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02725E1977BA6700DB4787 /* UIViewExt.swift */; };
 		CA0272611977DAF900DB4787 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0272601977DAF900DB4787 /* UsersService.swift */; };
 		CA02ECDF1977F28C0074FA6A /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02ECDE1977F28C0074FA6A /* SignInViewModel.swift */; };
+		CA376446197801A6001A4FC6 /* SecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA376445197801A6001A4FC6 /* SecretViewController.swift */; };
 		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
 		CA8FC60E1976AF7700F2A150 /* SecretViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60D1976AF7700F2A150 /* SecretViewCell.swift */; };
 		CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117819767E9E004D04CE /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		CA02725E1977BA6700DB4787 /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		CA0272601977DAF900DB4787 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		CA02ECDE1977F28C0074FA6A /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		CA376445197801A6001A4FC6 /* SecretViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretViewController.swift; sourceTree = "<group>"; };
 		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		CA8FC60D1976AF7700F2A150 /* SecretViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretViewCell.swift; sourceTree = "<group>"; };
 		CA92117319767E9E004D04CE /* Illuminati.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Illuminati.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CA92117A19767E9E004D04CE /* SecretsViewController.swift */,
+				CA376445197801A6001A4FC6 /* SecretViewController.swift */,
 				CA9211971976897C004D04CE /* SignInViewController.swift */,
 			);
 			name = VCs;
@@ -323,6 +326,7 @@
 				CA9211981976897C004D04CE /* SignInViewController.swift in Sources */,
 				CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */,
 				CA92117B19767E9E004D04CE /* SecretsViewController.swift in Sources */,
+				CA376446197801A6001A4FC6 /* SecretViewController.swift in Sources */,
 				CA02ECDF1977F28C0074FA6A /* SignInViewModel.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
 				CA921196197688AE004D04CE /* User.swift in Sources */,
