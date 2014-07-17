@@ -10,13 +10,7 @@ import UIKit
 
 class SecretsViewController: UITableViewController {
     
-    @lazy var secrets = {
-       [
-        Secret(caption: "My first secret...", background: UIColor.yellowColor()),
-        Secret(caption: "Here we go", background: UIColor.redColor()),
-        Secret(caption: "This third secret is somewhat long though... How will it fit?", background: UIColor.orangeColor())
-        ]
-    }()
+    @lazy var secrets = Secret.all()
                             
     override func viewDidLoad() {
         super.viewDidLoad()

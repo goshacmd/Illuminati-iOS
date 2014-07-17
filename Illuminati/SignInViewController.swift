@@ -180,12 +180,12 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
             "switch_button": footerSwitchButton
         ]
         
-        hw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[label(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
-        hw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(fvmargin)-[label]-(fvmargin)-|", options: nil, metrics: metrics, views: views))
+        hw.addConstraints("|-(hmargin)-[label(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
+        hw.addConstraints("V:|-(fvmargin)-[label]-(fvmargin)-|" %%% (nil, metrics, views))
         
-        fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[button(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
-        fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[switch_button(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
-        fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(vmargin)-|", options: nil, metrics: metrics, views: views))
+        fw.addConstraints("|-(hmargin)-[button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
+        fw.addConstraints("|-(hmargin)-[switch_button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
+        fw.addConstraints("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(vmargin)-|" %%% (nil, metrics, views))
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -249,8 +249,8 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         let views = [ "field": field ]
         
-        content.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[field(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
-        content.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vmargin)-[field]-(vmargin)-|", options: nil, metrics: metrics, views: views))
+        content.addConstraints("|-(hmargin)-[field(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
+        content.addConstraints("V:|-(vmargin)-[field]-(vmargin)-|" %%% (nil, metrics, views))
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

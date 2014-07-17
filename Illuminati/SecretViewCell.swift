@@ -10,12 +10,29 @@ import UIKit
 
 class SecretViewCell: UITableViewCell {
     
+    let metrics = [
+        "margin": 30,
+        "labelSpace": 15
+    ]
+    
     @lazy var captionLabel: UILabel = {
         let label = UILabel().noMask()
         label.textAlignment = .Center
         label.font = UIFont(name: "DamascusBold", size: 28)
         label.lineBreakMode = .ByWordWrapping
         label.numberOfLines = 0
+        return label
+    }()
+    
+    @lazy var likeCountLabel: UILabel = {
+        let label = UILabel().noMask()
+        label.textAlignment = .Right
+        return label
+    }()
+    
+    @lazy var commentCountLabel: UILabel = {
+        let label = UILabel().noMask()
+        label.textAlignment = .Right
         return label
     }()
     
@@ -30,25 +47,38 @@ class SecretViewCell: UITableViewCell {
         selectionStyle = .None
         
         contentView.addSubview(captionLabel)
+        contentView.addSubview(likeCountLabel)
+        contentView.addSubview(commentCountLabel)
         
         RAC(captionLabel, "text") <~ (secret ~~ "caption")
         RAC(backgroundView, "backgroundColor") <~ (secret ~~ "background")
         
-        RAC(captionLabel, "textColor") <~ (backgroundView ~~ "backgroundColor")
+        RAC(likeCountLabel, "text") <~ (secret ~~ "likeCount").map { "L: \($0)" }
+        RAC(commentCountLabel, "text") <~ (secret ~~ "commentCount").map { "C: \($0)" }
+        
+        let textColor = (backgroundView ~~ "backgroundColor")
             .ignore(nil)
             .map(^^self.textColorForBackground)
+        
+        textColor ~> RAC(captionLabel, "textColor")
+        textColor ~> RAC(likeCountLabel, "textColor")
+        textColor ~> RAC(commentCountLabel, "textColor")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let metrics = [ "margin": 30 ]
-        let views = [ "caption": captionLabel ]
+        let views = [
+            "caption": captionLabel,
+            "likes": likeCountLabel,
+            "comments": commentCountLabel
+        ]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(margin)-[caption(>=100)]-(margin)-|", options: nil, metrics: metrics, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[caption]-(margin)-|", options: nil, metrics: metrics, views: views))
-        contentView.addConstraint(NSLayoutConstraint(item: captionLabel, attribute: .Height, relatedBy: .Equal, toItem: captionLabel, attribute: .Width, multiplier: 1, constant: 0))
-
+        contentView.addConstraints("|-(margin)-[caption(>=100)]-(margin)-|" %%% (nil, metrics, views))
+        contentView.addConstraints("|-(>=0)-[likes]-(labelSpace)-[comments]-(margin)-|" %%% (nil, metrics, views))
+        contentView.addConstraints("V:|-(margin)-[caption]-(margin)-|" %%% (nil, metrics, views))
+        contentView.addConstraints("V:[likes]-(margin)-|" %%% (nil, metrics, views))
+        contentView.addConstraints("V:[comments]-(margin)-|" %%% (nil, metrics, views))
     }
     
     func textColorForBackground(color: UIColor) -> UIColor {
