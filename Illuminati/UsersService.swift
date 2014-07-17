@@ -18,7 +18,18 @@ let invalidCredentialsError = NSError(domain: kUserErrorDomain, code: UserError.
 
 class UsersService {
     
-    var currentUser: User?
+    var _currentUser: User?
+    
+    var currentUser: User? {
+    get {
+        return _currentUser ? _currentUser : retrieveUser()
+    }
+    
+    set(newUser) {
+        storeUser(newUser!.email)
+        _currentUser = newUser
+    }
+    }
     
     class var sharedService: UsersService {
         struct Singleton {
@@ -26,6 +37,20 @@ class UsersService {
         }
 
         return Singleton.instance
+    }
+    
+    func storeUser(email: NSString) {
+        let defs = NSUserDefaults.standardUserDefaults()
+        defs.setObject(email, forKey: "user-email")
+        defs.synchronize()
+    }
+    
+    func retrieveUser() -> User? {
+        if let email = NSUserDefaults.standardUserDefaults().objectForKey("user-email") as? NSString {
+            return User(email: email)
+        } else {
+            return nil
+        }
     }
     
     func signIn(email: String, password: String) -> RACSignal {
