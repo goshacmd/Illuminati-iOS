@@ -124,11 +124,11 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         actionCommand.executionSignals
             .flatten()
-            .deliverOn(RACScheduler.mainThreadScheduler())
+            .onMainThread()
             .subscribeNext { _ in self.navigationController.dismissViewControllerAnimated(true, completion: nil) }
         
         actionCommand.errors
-            .deliverOn(RACScheduler.mainThreadScheduler())
+            .onMainThread()
             .subscribeNext {
                 let error = $0 as NSError
                 let title = error.userInfo["title"] as? NSString
@@ -137,12 +137,12 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         }
         
         (viewModel ~~ "mode")
-            .deliverOn(RACScheduler.mainThreadScheduler())
+            .onMainThread()
             .subscribeNext { _ in self.updateStrings() }
         
         (viewModel ~~ "mode")
             .skip(1)
-            .deliverOn(RACScheduler.mainThreadScheduler())
+            .onMainThread()
             .subscribeNext { _ in self.updatePhoneRow() }
     }
     

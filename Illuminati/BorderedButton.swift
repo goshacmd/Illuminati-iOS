@@ -18,7 +18,7 @@ extension UIButton {
         
         // the border color should be the color of the text label
         (button.titleLabel ~~ "textColor")
-            .deliverOn(RACScheduler.mainThreadScheduler())
+            .onMainThread()
             .subscribeNext {
                 let color = $0 as UIColor
                 button.layer.borderColor = color.CGColor

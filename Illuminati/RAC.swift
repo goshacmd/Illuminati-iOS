@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension RACSignal {
+    func onMainThread() -> RACSignal {
+        return deliverOn(RACScheduler.mainThreadScheduler())
+    }
+}
+
 struct RAC {
     var target: NSObject!
     var keyPath: String!
