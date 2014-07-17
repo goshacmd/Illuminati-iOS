@@ -18,7 +18,6 @@
 		CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117819767E9E004D04CE /* AppDelegate.swift */; };
 		CA92117B19767E9E004D04CE /* SecretsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117A19767E9E004D04CE /* SecretsViewController.swift */; };
 		CA92118019767E9E004D04CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA92117F19767E9E004D04CE /* Images.xcassets */; };
-		CA92118C19767E9E004D04CE /* IlluminatiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92118B19767E9E004D04CE /* IlluminatiTests.swift */; };
 		CA921196197688AE004D04CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA921195197688AE004D04CE /* User.swift */; };
 		CA9211981976897C004D04CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9211971976897C004D04CE /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -50,8 +49,6 @@
 		CA92117A19767E9E004D04CE /* SecretsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsViewController.swift; sourceTree = "<group>"; };
 		CA92117F19767E9E004D04CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CA92118519767E9E004D04CE /* IlluminatiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IlluminatiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA92118A19767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA92118B19767E9E004D04CE /* IlluminatiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlluminatiTests.swift; sourceTree = "<group>"; };
 		CA921195197688AE004D04CE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA9211971976897C004D04CE /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CEE53622234D4870987E9992 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				CA92117519767E9E004D04CE /* Illuminati */,
-				CA92118819767E9E004D04CE /* IlluminatiTests */,
 				CA92117419767E9E004D04CE /* Products */,
 				9C759E1E07714C3DADD066E5 /* Pods.xcconfig */,
 				C652109313294A63973C9D77 /* Frameworks */,
@@ -170,23 +166,6 @@
 			children = (
 				CA0272541976D56100DB4787 /* Illuminati-Bridging-Header.h */,
 				CA92117719767E9E004D04CE /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CA92118819767E9E004D04CE /* IlluminatiTests */ = {
-			isa = PBXGroup;
-			children = (
-				CA92118B19767E9E004D04CE /* IlluminatiTests.swift */,
-				CA92118919767E9E004D04CE /* Supporting Files */,
-			);
-			path = IlluminatiTests;
-			sourceTree = "<group>";
-		};
-		CA92118919767E9E004D04CE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CA92118A19767E9E004D04CE /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -343,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA92118C19767E9E004D04CE /* IlluminatiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
