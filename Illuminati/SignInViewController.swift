@@ -125,7 +125,10 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         actionCommand.executionSignals
             .flatten()
             .onMainThread()
-            .subscribeNext { _ in self.navigationController.dismissViewControllerAnimated(true, completion: nil) }
+            .subscribeNext { _ in
+                self.view.endEditing(true)
+                self.navigationController.dismissViewControllerAnimated(true, completion: nil)
+            }
         
         actionCommand.errors
             .onMainThread()
