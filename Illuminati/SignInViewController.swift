@@ -26,8 +26,6 @@ func stringsForMode(mode: String) -> [String: String] {
 
 class SignInViewController: UITableViewController, UITextFieldDelegate {
     
-    var mode = "signIn"
-    
     let metrics = [
         "hmargin": 16,
         "vmargin": 10,
@@ -91,37 +89,8 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         return field
     }()
     
-    var email: String { return self.emailTextField.text }
-    var phone: String { return self.phoneTextField.text }
-    var password: String { return self.passwordTextField.text }
-
-    @lazy var validEmailSignal: RACSignal = self.emailTextField.rac_textSignal()
-        .map { self.isValidEmail($0 as NSString) }
-    @lazy var validPasswordSignal: RACSignal = self.passwordTextField.rac_textSignal()
-        .map { self.isValidPassword($0 as NSString) }
-    @lazy var validPhoneSignal: RACSignal = self.phoneTextField.rac_textSignal()
-        .map { self.isValidPhone($0 as NSString) }
-    @lazy var isSignInSignal: RACSignal = (self --> "mode").map { $0 as String == "signIn" }
-    
-    @lazy var validPhoneSignUpSignal: RACSignal = RACSignal
-        .combineLatest([self.isSignInSignal, self.validPhoneSignal])
-        .OR()
-    
-    @lazy var signInActiveSignal: RACSignal = RACSignal
-        .combineLatest([self.validEmailSignal, self.validPhoneSignUpSignal, self.validPasswordSignal])
-        .AND()
-    
-    var actionSignal: RACSignal {
-        if self.mode == "signIn" {
-            return UsersService.sharedService.signIn(self.email, password: self.password)
-        } else {
-            return UsersService.sharedService.signUp(self.email, phone: self.phone, password: self.password)
-        }
-    }
-    
-    @lazy var actionCommand: RACCommand = RACCommand(enabled: self.signInActiveSignal) { _ in
-        return self.actionSignal
-    }
+    @lazy var viewModel = SignInViewModel()
+    var mode: String { return self.viewModel.mode }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,13 +108,19 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         layoutSubviews()
         
+        RAC(viewModel, "email") <~ emailTextField.rac_textSignal()
+        RAC(viewModel, "phone") <~ phoneTextField.rac_textSignal()
+        RAC(viewModel, "password") <~ passwordTextField.rac_textSignal()
+        
+        let actionCommand = viewModel.actionCommand
+        
         footerButton.rac_command = actionCommand
         
         RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ actionCommand.executing
         
         RAC(footerSwitchButton, "enabled") <~ actionCommand.executing.NOT()
         
-        footerSwitchButton.addTarget(self, action: "toggleMode", forControlEvents: .TouchUpInside)
+        footerSwitchButton.addTarget(viewModel, action: "toggleMode", forControlEvents: .TouchUpInside)
         
         actionCommand.executionSignals
             .flatten()
@@ -161,18 +136,14 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
                 UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK").show()
         }
         
-        (self --> "mode")
+        (viewModel --> "mode")
             .deliverOn(RACScheduler.mainThreadScheduler())
             .subscribeNext { _ in self.updateStrings() }
         
-        (self --> "mode")
+        (viewModel --> "mode")
             .skip(1)
             .deliverOn(RACScheduler.mainThreadScheduler())
             .subscribeNext { _ in self.updatePhoneRow() }
-    }
-    
-    func toggleMode() {
-        self.mode = self.mode == "signIn" ? "signUp" : "signIn"
     }
     
     func updateStrings() {
@@ -212,18 +183,6 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[button(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
         fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hmargin)-[switch_button(>=150)]-(hmargin)-|", options: nil, metrics: metrics, views: views))
         fw.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(vmargin)-|", options: nil, metrics: metrics, views: views))
-    }
-    
-    func isValidEmail(email: NSString) -> NSNumber {
-        return email.length > 3 && email.containsString("@")
-    }
-    
-    func isValidPhone(phone: NSString) -> NSNumber {
-        return phone.length > 5
-    }
-    
-    func isValidPassword(password: NSString) -> NSNumber {
-        return password.length > 3
     }
     
     override func viewDidAppear(animated: Bool) {
