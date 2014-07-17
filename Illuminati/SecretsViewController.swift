@@ -22,6 +22,8 @@ class SecretsViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Illuminati"
+        
+        tableView.separatorStyle = .None
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -72,7 +74,7 @@ class SecretsViewController: UITableViewController {
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)  {
         let secret = secrets[indexPath.item]
         
-        let secretVC = SecretViewController()
+        let secretVC = SecretViewController(style: .Grouped)
         let nav = UINavigationController(rootViewController: secretVC)
         nav.modalPresentationStyle = .FullScreen
         
