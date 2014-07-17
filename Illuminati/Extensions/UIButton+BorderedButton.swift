@@ -1,5 +1,5 @@
 //
-//  BorderedButton.swift
+//  UIButton+BorderedButton.swift
 //  Illuminati
 //
 //  Created by Gosha Arinich on 7/17/14.

@@ -1,5 +1,5 @@
 //
-//  NSLayoutSugar.swift
+//  Operators+NSLayoutConstraint.swift
 //  Illuminati
 //
 //  Created by Gosha Arinich on 7/17/14.
