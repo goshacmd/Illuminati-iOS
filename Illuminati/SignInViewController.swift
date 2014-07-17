@@ -136,11 +136,11 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
                 UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK").show()
         }
         
-        (viewModel --> "mode")
+        (viewModel ~~ "mode")
             .deliverOn(RACScheduler.mainThreadScheduler())
             .subscribeNext { _ in self.updateStrings() }
         
-        (viewModel --> "mode")
+        (viewModel ~~ "mode")
             .skip(1)
             .deliverOn(RACScheduler.mainThreadScheduler())
             .subscribeNext { _ in self.updatePhoneRow() }

@@ -27,9 +27,9 @@ class SecretViewCell: UITableViewCell {
         
         contentView.addSubview(captionLabel)
         
-        RAC(captionLabel, "textColor") <~ (backgroundView --> "backgroundColor")
+        RAC(captionLabel, "textColor") <~ (backgroundView ~~ "backgroundColor")
             .ignore(nil)
-            .map { self.textColorForBackground($0 as UIColor) }
+            .map(^^self.textColorForBackground)
     }
     
     override func layoutSubviews()  {

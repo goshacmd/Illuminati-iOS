@@ -13,13 +13,13 @@ class SignInViewModel: NSObject {
     var phone = ""
     var password = ""
     
-    @lazy var validEmailSignal: RACSignal = (self --> "email")
-        .map { self.isValidEmail($0 as NSString) }
-    @lazy var validPasswordSignal: RACSignal = (self --> "password")
-        .map { self.isValidPassword($0 as NSString) }
-    @lazy var validPhoneSignal: RACSignal = (self --> "phone")
-        .map { self.isValidPhone($0 as NSString) }
-    @lazy var isSignInSignal: RACSignal = (self --> "mode").map { $0 as String == "signIn" }
+    @lazy var validEmailSignal: RACSignal = (self ~~ "email")
+        .map(^^self.isValidEmail)
+    @lazy var validPasswordSignal: RACSignal = (self ~~ "password")
+        .map(^^self.isValidPassword)
+    @lazy var validPhoneSignal: RACSignal = (self ~~ "phone")
+        .map(^^self.isValidPhone)
+    @lazy var isSignInSignal: RACSignal = (self ~~ "mode").map { $0 as String == "signIn" }
     
     @lazy var validPhoneSignUpSignal: RACSignal = RACSignal
         .combineLatest([self.isSignInSignal, self.validPhoneSignal])
@@ -45,15 +45,15 @@ class SignInViewModel: NSObject {
         self.mode = self.mode == "signIn" ? "signUp" : "signIn"
     }
     
-    func isValidEmail(email: NSString) -> NSNumber {
+    func isValidEmail(email: NSString) -> Bool {
         return email.length > 3 && email.containsString("@")
     }
     
-    func isValidPhone(phone: NSString) -> NSNumber {
+    func isValidPhone(phone: NSString) -> Bool {
         return phone.length > 5
     }
     
-    func isValidPassword(password: NSString) -> NSNumber {
+    func isValidPassword(password: NSString) -> Bool {
         return password.length > 3
     }
     
