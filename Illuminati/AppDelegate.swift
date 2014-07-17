@@ -11,11 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
-    var window: UIWindow?
+    @lazy var window: UIWindow = {
+        let win = UIWindow(frame: UIScreen.mainScreen().bounds)
+        win.backgroundColor = UIColor.whiteColor()
+        win.rootViewController = UINavigationController(rootViewController: SecretsViewController())
+        return win
+    }()
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
+        window.makeKeyAndVisible()
+        
         return true
     }
 
@@ -40,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication!) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

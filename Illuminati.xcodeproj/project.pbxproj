@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B48D63202CA64EBB97946C85 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE53622234D4870987E9992 /* libPods.a */; };
+		CA0272581976DB9C00DB4787 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0272571976DB9C00DB4787 /* RAC.swift */; };
+		CA02725B1976E87E00DB4787 /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = CA02725A1976E87E00DB4787 /* UIColor+Ext.m */; };
+		CA02725D1977B5C400DB4787 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02725C1977B5C400DB4787 /* BorderedButton.swift */; };
+		CA02725F1977BA6700DB4787 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02725E1977BA6700DB4787 /* UIViewExt.swift */; };
+		CA0272611977DAF900DB4787 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0272601977DAF900DB4787 /* UsersService.swift */; };
+		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
+		CA8FC60E1976AF7700F2A150 /* SecretViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60D1976AF7700F2A150 /* SecretViewCell.swift */; };
 		CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117819767E9E004D04CE /* AppDelegate.swift */; };
-		CA92117B19767E9E004D04CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117A19767E9E004D04CE /* ViewController.swift */; };
-		CA92117E19767E9E004D04CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA92117C19767E9E004D04CE /* Main.storyboard */; };
+		CA92117B19767E9E004D04CE /* SecretsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117A19767E9E004D04CE /* SecretsViewController.swift */; };
 		CA92118019767E9E004D04CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA92117F19767E9E004D04CE /* Images.xcassets */; };
 		CA92118C19767E9E004D04CE /* IlluminatiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92118B19767E9E004D04CE /* IlluminatiTests.swift */; };
+		CA921196197688AE004D04CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA921195197688AE004D04CE /* User.swift */; };
+		CA9211981976897C004D04CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9211971976897C004D04CE /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +34,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C759E1E07714C3DADD066E5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CA0272541976D56100DB4787 /* Illuminati-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Illuminati-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA0272571976DB9C00DB4787 /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
+		CA0272591976E87600DB4787 /* UIColor+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ext.h"; sourceTree = "<group>"; };
+		CA02725A1976E87E00DB4787 /* UIColor+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ext.m"; sourceTree = "<group>"; };
+		CA02725C1977B5C400DB4787 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		CA02725E1977BA6700DB4787 /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		CA0272601977DAF900DB4787 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		CA8FC60D1976AF7700F2A150 /* SecretViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretViewCell.swift; sourceTree = "<group>"; };
 		CA92117319767E9E004D04CE /* Illuminati.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Illuminati.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA92117719767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA92117819767E9E004D04CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA92117A19767E9E004D04CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CA92117D19767E9E004D04CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA92117A19767E9E004D04CE /* SecretsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsViewController.swift; sourceTree = "<group>"; };
 		CA92117F19767E9E004D04CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CA92118519767E9E004D04CE /* IlluminatiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IlluminatiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA92118A19767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA92118B19767E9E004D04CE /* IlluminatiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlluminatiTests.swift; sourceTree = "<group>"; };
+		CA921195197688AE004D04CE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CA9211971976897C004D04CE /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CEE53622234D4870987E9992 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B48D63202CA64EBB97946C85 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +76,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C652109313294A63973C9D77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEE53622234D4870987E9992 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA0272621977DDC600DB4787 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA02725C1977B5C400DB4787 /* BorderedButton.swift */,
+				CA02725E1977BA6700DB4787 /* UIViewExt.swift */,
+				CA0272591976E87600DB4787 /* UIColor+Ext.h */,
+				CA02725A1976E87E00DB4787 /* UIColor+Ext.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		CA0272631977DDDF00DB4787 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				CA92117A19767E9E004D04CE /* SecretsViewController.swift */,
+				CA9211971976897C004D04CE /* SignInViewController.swift */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
+		CA0272641977DDE800DB4787 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA921195197688AE004D04CE /* User.swift */,
+				CA8FC60B1976AE7700F2A150 /* Secret.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CA0272651977DDEE00DB4787 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA0272601977DAF900DB4787 /* UsersService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CA0272661977DDF600DB4787 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA8FC60D1976AF7700F2A150 /* SecretViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		CA92116A19767E9D004D04CE = {
 			isa = PBXGroup;
 			children = (
 				CA92117519767E9E004D04CE /* Illuminati */,
 				CA92118819767E9E004D04CE /* IlluminatiTests */,
 				CA92117419767E9E004D04CE /* Products */,
+				9C759E1E07714C3DADD066E5 /* Pods.xcconfig */,
+				C652109313294A63973C9D77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,8 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				CA92117819767E9E004D04CE /* AppDelegate.swift */,
-				CA92117A19767E9E004D04CE /* ViewController.swift */,
-				CA92117C19767E9E004D04CE /* Main.storyboard */,
+				CA0272641977DDE800DB4787 /* Models */,
+				CA0272651977DDEE00DB4787 /* Services */,
+				CA0272631977DDDF00DB4787 /* VCs */,
+				CA0272661977DDF600DB4787 /* Views */,
+				CA0272621977DDC600DB4787 /* Extensions */,
+				CA0272571976DB9C00DB4787 /* RAC.swift */,
 				CA92117F19767E9E004D04CE /* Images.xcassets */,
 				CA92117619767E9E004D04CE /* Supporting Files */,
 			);
@@ -87,6 +168,7 @@
 		CA92117619767E9E004D04CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CA0272541976D56100DB4787 /* Illuminati-Bridging-Header.h */,
 				CA92117719767E9E004D04CE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -116,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA92118F19767E9E004D04CE /* Build configuration list for PBXNativeTarget "Illuminati" */;
 			buildPhases = (
+				465765554BAB483E92A52477 /* Check Pods Manifest.lock */,
 				CA92116F19767E9E004D04CE /* Sources */,
 				CA92117019767E9E004D04CE /* Frameworks */,
 				CA92117119767E9E004D04CE /* Resources */,
+				068F971BB5604EC3B38CC08B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,6 +237,7 @@
 		CA92116B19767E9D004D04CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Gosha Arinich";
 				TargetAttributes = {
@@ -189,7 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA92117E19767E9E004D04CE /* Main.storyboard in Resources */,
 				CA92118019767E9E004D04CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,13 +287,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		068F971BB5604EC3B38CC08B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		465765554BAB483E92A52477 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CA92116F19767E9E004D04CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA92117B19767E9E004D04CE /* ViewController.swift in Sources */,
+				CA0272611977DAF900DB4787 /* UsersService.swift in Sources */,
+				CA8FC60E1976AF7700F2A150 /* SecretViewCell.swift in Sources */,
+				CA02725F1977BA6700DB4787 /* UIViewExt.swift in Sources */,
+				CA02725B1976E87E00DB4787 /* UIColor+Ext.m in Sources */,
+				CA02725D1977B5C400DB4787 /* BorderedButton.swift in Sources */,
+				CA9211981976897C004D04CE /* SignInViewController.swift in Sources */,
+				CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */,
+				CA92117B19767E9E004D04CE /* SecretsViewController.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
+				CA921196197688AE004D04CE /* User.swift in Sources */,
+				CA0272581976DB9C00DB4787 /* RAC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,17 +356,6 @@
 			targetProxy = CA92118619767E9E004D04CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CA92117C19767E9E004D04CE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA92117D19767E9E004D04CE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CA92118D19767E9E004D04CE /* Debug */ = {
@@ -322,23 +437,32 @@
 		};
 		CA92119019767E9E004D04CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C759E1E07714C3DADD066E5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Illuminati/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Illuminati/Illuminati-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CA92119119767E9E004D04CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C759E1E07714C3DADD066E5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Illuminati/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Illuminati/Illuminati-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -395,6 +519,7 @@
 				CA92119119767E9E004D04CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA92119219767E9E004D04CE /* Build configuration list for PBXNativeTarget "IlluminatiTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +528,7 @@
 				CA92119419767E9E004D04CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
