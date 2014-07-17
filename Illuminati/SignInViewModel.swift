@@ -46,7 +46,7 @@ class SignInViewModel: NSObject {
     }
     
     func isValidEmail(email: NSString) -> Bool {
-        return email.length > 3 && email.containsString("@")
+        return email.length > 3 && (email.rangeOfString("@").length != 0)
     }
     
     func isValidPhone(phone: NSString) -> Bool {
