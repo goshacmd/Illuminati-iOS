@@ -193,7 +193,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         emailTextField.becomeFirstResponder()
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool  {
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
         switch textField {
         case emailTextField:
             (mode == "signIn" ? passwordTextField : phoneTextField).becomeFirstResponder()
@@ -253,7 +253,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         content.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vmargin)-[field]-(vmargin)-|", options: nil, metrics: metrics, views: views))
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat  {
+    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let h = emailTextField.frame.height
         
         if h == 0 {

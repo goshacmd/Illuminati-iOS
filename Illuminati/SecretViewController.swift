@@ -71,7 +71,7 @@ class SecretViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat  {
+    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return indexPath.section == 0 ? UIScreen.mainScreen().bounds.width : super.tableView(tableView, heightForRowAtIndexPath: indexPath)
     }
 

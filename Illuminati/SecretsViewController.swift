@@ -41,11 +41,11 @@ class SecretsViewController: UITableViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int  {
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return secrets.count
     }
     
@@ -67,11 +67,11 @@ class SecretsViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat  {
+    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return UIScreen.mainScreen().bounds.width
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)  {
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         let secret = secrets[indexPath.item]
         
         let secretVC = SecretViewController(style: .Grouped)

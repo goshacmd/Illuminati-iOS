@@ -32,7 +32,7 @@ class SecretViewCell: UITableViewCell {
             .map(^^self.textColorForBackground)
     }
     
-    override func layoutSubviews()  {
+    override func layoutSubviews() {
         super.layoutSubviews()
         
         let metrics = [ "margin": 30 ]
