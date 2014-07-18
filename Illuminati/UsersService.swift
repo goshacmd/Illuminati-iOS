@@ -26,8 +26,13 @@ class UsersService {
     }
     
     set(newUser) {
-        storeUser(newUser!.email)
         _currentUser = newUser
+        
+        if let user = newUser {
+            storeUser(user.email)
+        } else {
+            removeUser()
+        }
     }
     }
     
@@ -51,6 +56,16 @@ class UsersService {
         } else {
             return nil
         }
+    }
+    
+    func removeUser() {
+        let defs = NSUserDefaults.standardUserDefaults()
+        defs.setObject(nil, forKey: "user-email")
+        defs.synchronize()
+    }
+    
+    func signOut() {
+        currentUser = nil
     }
     
     func signIn(email: String, password: String) -> RACSignal {

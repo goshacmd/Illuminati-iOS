@@ -16,6 +16,7 @@ class SecretsViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Illuminati"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .Plain, target: self, action: "signOut")
         
         tableView.separatorStyle = .None
     }
@@ -23,6 +24,11 @@ class SecretsViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
         self.checkUser()
+    }
+    
+    func signOut() {
+        UsersService.sharedService.signOut()
+        checkUser()
     }
     
     func checkUser() {
