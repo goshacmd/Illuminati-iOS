@@ -27,24 +27,14 @@ func stringsForMode(mode: String) -> [String: String] {
 class SignInViewController: UITableViewController, UITextFieldDelegate {
     
     let metrics = [
-        "hmargin": 16,
-        "vmargin": 10,
-        "fvmargin": 5
+        "hmargin": 32,
+        "vmargin": 16,
+        "fvmargin": 8
     ]
-    
-    @lazy var headerLabel: UILabel = {
-        let label = UILabel().noMask()
-        label.text = "Welcome to Illuminati, an anonymous social network."
-        label.numberOfLines = 0
-        label.textAlignment = .Center
-        label.textColor = UIColor.grayColor()
-        label.font = UIFont.systemFontOfSize(16)
-        return label
-    }()
     
     @lazy var footerButton: UIButton = {
         let button = UIButton.borderedButton().noMask()
-        button.titleLabel.font = UIFont.systemFontOfSize(16)
+        button.titleLabel.font = UIFont.systemFontOfSize(20)
         
         return button
     }()
@@ -58,7 +48,6 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         return button
     }()
     
-    @lazy var hw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
     @lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
     
     @lazy var emailTextField: UITextField = {
@@ -68,6 +57,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         field.autocorrectionType = .No
         field.returnKeyType = .Next
         field.placeholder = "Email address"
+        field.font = UIFont.systemFontOfSize(20)
         field.delegate = self
         return field
     }()
@@ -77,6 +67,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         field.keyboardType = .PhonePad
         field.returnKeyType = .Next
         field.placeholder = "Phone"
+        field.font = UIFont.systemFontOfSize(20)
         field.delegate = self
         return field
         }()
@@ -86,6 +77,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         field.secureTextEntry = true
         field.returnKeyType = .Go
         field.placeholder = "Password"
+        field.font = UIFont.systemFontOfSize(20)
         field.delegate = self
         return field
     }()
@@ -96,18 +88,19 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Illuminati"
+        navigationController.navigationBarHidden = true
         
-        tableView.separatorStyle = .None
-        
-        hw.addSubview(headerLabel)
         fw.addSubview(footerButton)
         fw.addSubview(footerSwitchButton)
         
-        tableView.tableHeaderView = hw
+        layoutSubviews()
+        
+        tableView.separatorStyle = .None
         tableView.tableFooterView = fw
         
-        layoutSubviews()
+        automaticallyAdjustsScrollViewInsets = false
+        
+        navigationController.view.backgroundColor = UIColor.clearColor()
         
         RAC(viewModel, "email") <~ emailTextField.rac_textSignal()
         RAC(viewModel, "phone") <~ phoneTextField.rac_textSignal()
@@ -161,32 +154,28 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     func updatePhoneRow() {
         let phone = NSIndexPath(forRow: 1, inSection: 0)
         
-        self.emailTextField.becomeFirstResponder()
+        emailTextField.becomeFirstResponder()
         
-        self.tableView.beginUpdates()
+        tableView.beginUpdates()
         
-        if self.mode == "signIn" {
-            self.tableView.deleteRowsAtIndexPaths([phone], withRowAnimation: .Top)
+        if mode == "signIn" {
+            tableView.deleteRowsAtIndexPaths([phone], withRowAnimation: .Top)
         } else {
-            self.tableView.insertRowsAtIndexPaths([phone], withRowAnimation: .Top)
+            tableView.insertRowsAtIndexPaths([phone], withRowAnimation: .Top)
         }
         
-        self.tableView.endUpdates()
+        tableView.endUpdates()
     }
     
     func layoutSubviews() {
         let views = [
-            "label": headerLabel,
             "button": footerButton,
             "switch_button": footerSwitchButton
         ]
         
-        hw.addConstraints("|-(hmargin)-[label(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
-        hw.addConstraints("V:|-(fvmargin)-[label]-(fvmargin)-|" %%% (nil, metrics, views))
-        
         fw.addConstraints("|-(hmargin)-[button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
         fw.addConstraints("|-(hmargin)-[switch_button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
-        fw.addConstraints("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(vmargin)-|" %%% (nil, metrics, views))
+        fw.addConstraints("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(fvmargin)-|" %%% (nil, metrics, views))
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -261,8 +250,8 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
             // not laid out, opt for default behavior
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
-        
-        return 2 * 10 + emailTextField.frame.height
+
+        return 2 * CGFloat(metrics["vmargin"]!) + emailTextField.frame.height
     }
 
 }

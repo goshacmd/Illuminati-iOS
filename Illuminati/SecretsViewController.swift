@@ -27,7 +27,7 @@ class SecretsViewController: UITableViewController {
     
     func checkUser() {
         if !UsersService.sharedService.currentUser {
-            let signIn = SignInViewController(style: .Grouped)
+            let signIn = SignInViewController(style: .Grouped)            
             let nav = UINavigationController(rootViewController: signIn)
             nav.modalPresentationStyle = .FormSheet
             
