@@ -14,7 +14,7 @@ enum UserError: Int {
     case InvalidCredentials
 }
 
-let invalidCredentialsError = NSError(domain: kUserErrorDomain, code: UserError.InvalidCredentials.toRaw(), userInfo: ["title": "Invalid credentails", "message": "The credentials you enetred didn't match. Try again"])
+let invalidCredentialsError = NSError(domain: kUserErrorDomain, code: UserError.InvalidCredentials.toRaw(), userInfo: ["title": "Invalid credentails", "message": "The credentials you entered didn't match. Try again"])
 
 class UsersService {
     
