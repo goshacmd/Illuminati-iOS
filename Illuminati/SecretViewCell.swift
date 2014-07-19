@@ -36,12 +36,19 @@ class SecretViewCell: UITableViewCell {
         return label
     }()
     
-    var secret: Secret
+    @lazy var secretTextColor: RACSignal =
+        (self.backgroundView ~~ "backgroundColor")
+            .ignore(nil)
+            .map(^^self.textColorForBackground)
+    
+    var secret: Secret? {
+        didSet { self.bindSecretToView(secret!) }
+    }
+    
+    var disposables: [RACDisposable] = []
 
-    init(secret: Secret, style: UITableViewCellStyle, reuseIdentifier: String) {
-        self.secret = secret
-        
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+        super.init(style: .Default, reuseIdentifier: reuseIdentifier)
         
         backgroundView = UIView()
         selectionStyle = .None
@@ -50,19 +57,24 @@ class SecretViewCell: UITableViewCell {
         contentView.addSubview(likeCountLabel)
         contentView.addSubview(commentCountLabel)
         
-        RAC(captionLabel, "text") <~ (secret ~~ "caption")
-        RAC(backgroundView, "backgroundColor") <~ (secret ~~ "background")
-        
-        RAC(likeCountLabel, "text") <~ (secret ~~ "likeCount").map { "L: \($0)" }
-        RAC(commentCountLabel, "text") <~ (secret ~~ "commentCount").map { "C: \($0)" }
-        
-        let textColor = (backgroundView ~~ "backgroundColor")
-            .ignore(nil)
-            .map(^^self.textColorForBackground)
-        
-        textColor ~> RAC(captionLabel, "textColor")
-        textColor ~> RAC(likeCountLabel, "textColor")
-        textColor ~> RAC(commentCountLabel, "textColor")
+        secretTextColor ~> RAC(captionLabel, "textColor")
+        secretTextColor ~> RAC(likeCountLabel, "textColor")
+        secretTextColor ~> RAC(commentCountLabel, "textColor")
+    }
+    
+    func bindSecretToView(secret: Secret) {
+        disposables = [
+            RAC(captionLabel, "text") <~ (secret ~~ "caption"),
+            RAC(backgroundView, "backgroundColor") <~ (secret ~~ "background"),
+            RAC(likeCountLabel, "text") <~ (secret ~~ "likeCount").map { "L: \($0)" },
+            RAC(commentCountLabel, "text") <~ (secret ~~ "commentCount").map { "C: \($0)" }
+        ]
+    }
+    
+    override func prepareForReuse()  {        
+        for d in disposables {
+            d.dispose()
+        }
     }
     
     override func layoutSubviews() {

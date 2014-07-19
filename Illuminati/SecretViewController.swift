@@ -11,8 +11,10 @@ import UIKit
 class SecretViewController: UITableViewController {
     
     @lazy var secretView: SecretViewCell = {
-        let view = SecretViewCell(secret: self.secret, style: .Default, reuseIdentifier: "HDR")
-        view.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        let view = SecretViewCell(style: .Default, reuseIdentifier: "HDR")
+        view.secret = self.secret
+        let a = UIScreen.mainScreen().bounds.width
+        view.frame = CGRect(x: 0, y: 0, width: a, height: a)
         return view
     }()
     

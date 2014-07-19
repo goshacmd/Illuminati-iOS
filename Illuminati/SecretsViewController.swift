@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kSecretCellID = "secretCell"
+
 class SecretsViewController: UITableViewController {
     
     @lazy var secrets = Secret.all()
@@ -19,10 +21,15 @@ class SecretsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .Plain, target: self, action: "signOut")
         
         tableView.separatorStyle = .None
+        tableView.registerClass(SecretViewCell.classForCoder(), forCellReuseIdentifier: kSecretCellID)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
+        
+        // scroll to bottom
+        tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height - tableView.frame.size.height), animated: true)
+        
         self.checkUser()
     }
     
@@ -50,16 +57,10 @@ class SecretsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
-        let cellID = "secretCell"
+        let secret = secrets[indexPath.item]
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? SecretViewCell
-        
-        if !cell {
-            let secret = secrets[indexPath.item]
-            let newCell = SecretViewCell(secret: secret, style: .Default, reuseIdentifier: cellID)
-            
-            cell = newCell
-        }
+        var cell = tableView.dequeueReusableCellWithIdentifier(kSecretCellID) as SecretViewCell
+        cell.secret = secret
         
         return cell
     }
