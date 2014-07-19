@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 func stringsForMode(mode: String) -> [String: String] {
     switch mode {
