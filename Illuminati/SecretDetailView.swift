@@ -47,13 +47,14 @@ class SecretDetailView: UIView {
     init(frame: CGRect) {
         super.init(frame: frame)
         
+        addSubview(secretView)
         addSubview(tableView)
         addSubview(bottomView)
         bottomView.addSubview(commentField)
         
 //        tableView.separatorStyle = .None
 //        tableView.alwaysBounceVertical = false
-        tableView.tableHeaderView = secretView
+//        tableView.tableHeaderView = secretView
     }
     
     override class func requiresConstraintBasedLayout() -> Bool {
@@ -64,14 +65,16 @@ class SecretDetailView: UIView {
         super.updateConstraints()
         
         let views = [
+            "secret": secretView,
             "table": tableView,
             "bottom": bottomView,
             "comment": commentField
         ]
-        
+
+        addConstraints("|[secret]|" %%% (nil, nil, views))
         addConstraints("|[table]|" %%% (nil, nil, views))
         addConstraints("|[bottom]|" %%% (nil, nil, views))
-        addConstraints("V:|[table][bottom(40)]" %%% (nil, nil, views))
+        addConstraints("V:|[secret][table][bottom(40)]" %%% (nil, nil, views))
         
         bottomView.addConstraints("|-[comment]-|" %%% (nil, nil, views))
         bottomView.addConstraints("V:|[comment]|" %%% (nil, nil, views))

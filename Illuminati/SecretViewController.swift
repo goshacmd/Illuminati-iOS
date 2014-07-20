@@ -60,16 +60,12 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         let dv = detailView!
         var frame = dv.secretView.frame
-        let maxHeight = frame.width as Float
-        let minHeight = 100 as Float
-        let newHeight = (frame.height - position) as Float
-        frame.size.height = [minHeight, newHeight, maxHeight].sorted { $0 > $1 }[1] as CGFloat
+        let maxHeight = frame.width
+        let newHeight = frame.height - position
+        frame.size.height = min(max(100, newHeight), maxHeight)
         
         if (frame.size.height != dv.secretView.frame.height) {
-            dv.tableView.beginUpdates()
             dv.secretView.frame = frame
-            dv.tableView.tableHeaderView = dv.secretView
-            dv.tableView.endUpdates()
         }
     }
     
