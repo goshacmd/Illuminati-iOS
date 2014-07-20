@@ -78,6 +78,7 @@ class SecretView: UIView {
                 RAC(commentCountLabel, "text") <~ (secret ~~ "commentCount").map { "C: \($0)" }
             ]
         }
+        
     }
     
     func textColorForBackground(color: UIColor) -> UIColor {

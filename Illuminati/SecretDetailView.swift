@@ -40,8 +40,8 @@ class SecretDetailView: UIView {
     }()
     
     @lazy var keyboardHeight: NSLayoutConstraint = {
-        let c = NSLayoutConstraint(item: self.bottomView, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
-        return c
+        return NSLayoutConstraint(item: self.bottomView, attribute: .Bottom, relatedBy: .Equal,
+                                  toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
     }()
 
     init(frame: CGRect) {
@@ -51,8 +51,8 @@ class SecretDetailView: UIView {
         addSubview(bottomView)
         bottomView.addSubview(commentField)
         
-        tableView.separatorStyle = .None
-        tableView.alwaysBounceVertical = false
+//        tableView.separatorStyle = .None
+//        tableView.alwaysBounceVertical = false
         tableView.tableHeaderView = secretView
     }
     

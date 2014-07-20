@@ -19,6 +19,7 @@
 		CA56206D197C1CDD00F4BEAD /* SecretDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56206C197C1CDD00F4BEAD /* SecretDetailView.swift */; };
 		CA56206F197C229B00F4BEAD /* SecretView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56206E197C229B00F4BEAD /* SecretView.swift */; };
 		CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */; };
+		CA5BD737197C4A83009EB414 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5BD736197C4A83009EB414 /* Comment.swift */; };
 		CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */; };
 		CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */; };
 		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
@@ -55,6 +56,7 @@
 		CA56206C197C1CDD00F4BEAD /* SecretDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretDetailView.swift; sourceTree = "<group>"; };
 		CA56206E197C229B00F4BEAD /* SecretView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretView.swift; sourceTree = "<group>"; };
 		CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintHelpers.swift"; sourceTree = "<group>"; };
+		CA5BD736197C4A83009EB414 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+MainThread.swift"; sourceTree = "<group>"; };
 		CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators+RAC.swift"; sourceTree = "<group>"; };
 		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				CA921195197688AE004D04CE /* User.swift */,
 				CA8FC60B1976AE7700F2A150 /* Secret.swift */,
+				CA5BD736197C4A83009EB414 /* Comment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */,
 				CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
+				CA5BD737197C4A83009EB414 /* Comment.swift in Sources */,
 				CA921196197688AE004D04CE /* User.swift in Sources */,
 				CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */,
 				CA56206D197C1CDD00F4BEAD /* SecretDetailView.swift in Sources */,

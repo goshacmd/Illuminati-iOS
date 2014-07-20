@@ -9,9 +9,15 @@
 import UIKit
 import QuartzCore
 
+let kCommentCellID = "commentCell"
+
 class SecretViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var secret: Secret
+    
+    var comments: [Comment] {
+        get { return secret.comments }
+    }
     
     var detailView: SecretDetailView?
     
@@ -31,11 +37,11 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         let dv = detailView!
         
-        dv.tableView.dataSource = self
-        dv.tableView.delegate = self
-        
         dv.secretView.secret = secret
         
+        dv.tableView.dataSource = self
+        dv.tableView.delegate = self
+        dv.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kCommentCellID)
         dv.tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hideKeyboard"))
         
         navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
@@ -95,22 +101,16 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return comments.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
-        let cellID = "commentCell"
+        let comment = comments[indexPath.item]
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-        
-        if !cell {
-            let newCell = UITableViewCell(style: .Default, reuseIdentifier: cellID)
-            
-            newCell.textLabel.text = "Demo comment"
-            newCell.selectionStyle = .None
-            
-            cell = newCell
-        }
+        var cell = tableView.dequeueReusableCellWithIdentifier(kCommentCellID) as UITableViewCell
+
+        cell.selectionStyle = .None
+        cell.textLabel.text = comment.text
         
         return cell
     }
