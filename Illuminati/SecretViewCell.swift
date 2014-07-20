@@ -77,8 +77,12 @@ class SecretViewCell: UITableViewCell {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override class func requiresConstraintBasedLayout() -> Bool {
+        return true
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
         
         let views = [
             "caption": captionLabel,
