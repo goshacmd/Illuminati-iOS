@@ -60,6 +60,12 @@ class SecretView: UIView {
         addSubview(likeCountLabel)
         addSubview(commentCountLabel)
         
+        captionLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        captionLabel.layer.shadowRadius = 10
+        captionLabel.layer.shadowOpacity = 0.8
+        captionLabel.layer.shadowOffset = CGSizeZero
+        captionLabel.layer.masksToBounds = false
+        
         secretTextColor ~> RAC(captionLabel, "textColor")
         secretTextColor ~> RAC(likeCountLabel, "textColor")
         secretTextColor ~> RAC(commentCountLabel, "textColor")
