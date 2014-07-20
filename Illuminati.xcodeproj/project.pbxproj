@@ -18,6 +18,7 @@
 		CA5603541978211F004DFEB8 /* Operators+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5603531978211F004DFEB8 /* Operators+NSLayoutConstraint.swift */; };
 		CA56206D197C1CDD00F4BEAD /* SecretDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56206C197C1CDD00F4BEAD /* SecretDetailView.swift */; };
 		CA56206F197C229B00F4BEAD /* SecretView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56206E197C229B00F4BEAD /* SecretView.swift */; };
+		CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */; };
 		CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */; };
 		CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */; };
 		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
@@ -53,6 +54,7 @@
 		CA5603531978211F004DFEB8 /* Operators+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		CA56206C197C1CDD00F4BEAD /* SecretDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretDetailView.swift; sourceTree = "<group>"; };
 		CA56206E197C229B00F4BEAD /* SecretView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretView.swift; sourceTree = "<group>"; };
+		CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintHelpers.swift"; sourceTree = "<group>"; };
 		CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+MainThread.swift"; sourceTree = "<group>"; };
 		CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators+RAC.swift"; sourceTree = "<group>"; };
 		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				CA5603531978211F004DFEB8 /* Operators+NSLayoutConstraint.swift */,
 				CA02725C1977B5C400DB4787 /* UIButton+BorderedButton.swift */,
 				CA02725E1977BA6700DB4787 /* UIView+NoMask.swift */,
+				CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */,
 				CA0272591976E87600DB4787 /* UIColor+Ext.h */,
 				CA02725A1976E87E00DB4787 /* UIColor+Ext.m */,
 			);
@@ -345,6 +348,7 @@
 				CA376446197801A6001A4FC6 /* SecretViewController.swift in Sources */,
 				CA5603541978211F004DFEB8 /* Operators+NSLayoutConstraint.swift in Sources */,
 				CA02ECDF1977F28C0074FA6A /* SignInViewModel.swift in Sources */,
+				CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */,
 				CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
 				CA921196197688AE004D04CE /* User.swift in Sources */,

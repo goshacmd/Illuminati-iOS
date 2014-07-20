@@ -37,10 +37,7 @@ class SecretCell: UITableViewCell {
     override func updateConstraints() {
         super.updateConstraints()
         
-        let views = [ "secret": secretView ]
-        
-        contentView.addConstraints("|[secret]|" %%% (nil, nil, views))
-        contentView.addConstraints("V:|[secret]|" %%% (nil, nil, views))
+        contentView.addOverlayConstraints(secretView)
     }
 
 }

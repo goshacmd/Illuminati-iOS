@@ -98,8 +98,7 @@ class SecretView: UIView {
             "back": backgroundView
         ]
         
-        addConstraints("|[back]|" %%% (nil, nil, views))
-        addConstraints("V:|[back]|" %%% (nil, nil, views))
+        addOverlayConstraints(backgroundView)
         
         addConstraints("|-(margin)-[caption(>=100)]-(margin)-|" %%% (nil, metrics, views))
         addConstraints("|-(>=0)-[likes]-(labelSpace)-[comments]-(margin)-|" %%% (nil, metrics, views))
