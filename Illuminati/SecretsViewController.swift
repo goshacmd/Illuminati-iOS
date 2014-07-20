@@ -21,7 +21,7 @@ class SecretsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .Plain, target: self, action: "signOut")
         
         tableView.separatorStyle = .None
-        tableView.registerClass(SecretViewCell.classForCoder(), forCellReuseIdentifier: kSecretCellID)
+        tableView.registerClass(SecretCell.classForCoder(), forCellReuseIdentifier: kSecretCellID)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,7 +59,7 @@ class SecretsViewController: UITableViewController {
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         let secret = secrets[indexPath.item]
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(kSecretCellID) as SecretViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(kSecretCellID) as SecretCell
         cell.secret = secret
         
         return cell

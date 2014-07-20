@@ -11,85 +11,38 @@ import QuartzCore
 
 class SecretViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @lazy var secretView: SecretViewCell = {
-        let view = SecretViewCell(style: .Default, reuseIdentifier: "HDR")
-        view.secret = self.secret
-        let a = UIScreen.mainScreen().bounds.width
-        view.frame = CGRect(x: 0, y: 0, width: a, height: a)
-        return view
-    }()
-    
-    @lazy var tableView: UITableView = {
-        let table = UITableView().noMask()
-        table.dataSource = self
-        table.delegate = self
-        return table
-    }()
-    
-    @lazy var commentField: UITextField = {
-        let field = UITextField().noMask()
-        field.placeholder = "Comment..."
-        return field
-    }()
-    
-    @lazy var bottomView: UIView = {
-        let view = UIView(frame: CGRectZero).noMask()
-        
-        let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 1)
-        topBorder.backgroundColor = UIColor.lightGrayColor().CGColor
-        view.layer.addSublayer(topBorder)
-
-        return view
-    }()
-    
-    @lazy var keyboardHeight: NSLayoutConstraint = {
-        let c = NSLayoutConstraint(item: self.bottomView, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0)
-        return c
-    }()
-    
     var secret: Secret
+    
+    var detailView: SecretDetailView?
     
     init(secret: Secret) {
         self.secret = secret
         
         super.init(nibName: nil, bundle: nil)
     }
+    
+    override func loadView() {
+        detailView = SecretDetailView(frame: CGRectZero)
+        view = detailView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tableView)
-        view.addSubview(bottomView)
-        bottomView.addSubview(commentField)
+        let dv = detailView!
         
-        let views = [
-            "table": tableView,
-            "bottom": bottomView,
-            "comment": commentField
-        ]
-
-        view.addConstraints("|[table]|" %%% (nil, nil, views))
-        view.addConstraints("|[bottom]|" %%% (nil, nil, views))
-        view.addConstraints("V:|[table][bottom(40)]" %%% (nil, nil, views))
+        dv.tableView.dataSource = self
+        dv.tableView.delegate = self
         
-        bottomView.addConstraints("|-[comment]-|" %%% (nil, nil, views))
-        bottomView.addConstraints("V:|[comment]|" %%% (nil, nil, views))
+        dv.secretView.secret = secret
         
-        view.addConstraint(keyboardHeight)
+        dv.tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hideKeyboard"))
         
-        let rec = UITapGestureRecognizer(target: self, action: "hideKeyboard")
-        tableView.addGestureRecognizer(rec)
-        
-        navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.translucent = true
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: "close")
-        
-        tableView.separatorStyle = .None
-        tableView.alwaysBounceVertical = false
-        tableView.tableHeaderView = secretView
         
         automaticallyAdjustsScrollViewInsets = false
         
@@ -120,7 +73,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         var keyboardFrame = kbFrame.CGRectValue()
         var height = keyboardFrame.size.height
         
-        keyboardHeight.constant = -height
+        detailView!.keyboardHeight.constant = -height
         
         UIView.animateWithDuration(animationDuration) {
             self.view.layoutIfNeeded()
@@ -130,7 +83,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     func keyboardWillHide(notification: NSNotification) {
         var animationDuration = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey]!.doubleValue as NSTimeInterval
         
-        keyboardHeight.constant = 0
+        detailView!.keyboardHeight.constant = 0
         
         UIView.animateWithDuration(animationDuration) {
             self.view.layoutIfNeeded()
