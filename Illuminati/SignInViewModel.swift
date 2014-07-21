@@ -13,19 +13,19 @@ class SignInViewModel: NSObject {
     var phone = ""
     var password = ""
     
-    @lazy var validEmailSignal: RACSignal = (self ~~ "email")
+    lazy var validEmailSignal: RACSignal = (self ~~ "email")
         .map(^^self.isValidEmail)
-    @lazy var validPasswordSignal: RACSignal = (self ~~ "password")
+    lazy var validPasswordSignal: RACSignal = (self ~~ "password")
         .map(^^self.isValidPassword)
-    @lazy var validPhoneSignal: RACSignal = (self ~~ "phone")
+    lazy var validPhoneSignal: RACSignal = (self ~~ "phone")
         .map(^^self.isValidPhone)
-    @lazy var isSignInSignal: RACSignal = (self ~~ "mode").map { $0 as String == "signIn" }
+    lazy var isSignInSignal: RACSignal = (self ~~ "mode").map { $0 as String == "signIn" }
     
-    @lazy var validPhoneSignUpSignal: RACSignal = RACSignal
+    lazy var validPhoneSignUpSignal: RACSignal = RACSignal
         .combineLatest([self.isSignInSignal, self.validPhoneSignal])
         .OR()
     
-    @lazy var signInActiveSignal: RACSignal = RACSignal
+    lazy var signInActiveSignal: RACSignal = RACSignal
         .combineLatest([self.validEmailSignal, self.validPhoneSignUpSignal, self.validPasswordSignal])
         .AND()
     
@@ -37,7 +37,7 @@ class SignInViewModel: NSObject {
         }
     }
     
-    @lazy var actionCommand: RACCommand = RACCommand(enabled: self.signInActiveSignal) { _ in
+    lazy var actionCommand: RACCommand = RACCommand(enabled: self.signInActiveSignal) { _ in
         return self.actionSignal
     }
     

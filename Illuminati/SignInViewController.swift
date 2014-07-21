@@ -31,14 +31,14 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         "fvmargin": 8
     ]
     
-    @lazy var footerButton: UIButton = {
+    lazy var footerButton: UIButton = {
         let button = UIButton.borderedButton().noMask()
         button.titleLabel.font = UIFont.systemFontOfSize(20)
         
         return button
     }()
     
-    @lazy var footerSwitchButton: UIButton = {
+    lazy var footerSwitchButton: UIButton = {
         let button = UIButton.buttonWithType(.System).noMask() as UIButton
         button.setTitleColor(UIColor.grayColor(), forState: .Normal)
         button.titleLabel.textAlignment = .Center
@@ -47,9 +47,9 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         return button
     }()
     
-    @lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+    lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
     
-    @lazy var emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         return UITextField()
             .keyboard(.EmailAddress)
             .returnKey(.Next)
@@ -60,7 +60,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
             .noMask()
     }()
     
-    @lazy var phoneTextField: UITextField = {
+    lazy var phoneTextField: UITextField = {
         return UITextField()
             .keyboard(.PhonePad)
             .returnKey(.Next)
@@ -70,7 +70,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
             .noMask()
         }()
     
-    @lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         return UITextField()
             .secure()
             .returnKey(.Go)
@@ -80,7 +80,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
             .noMask()
     }()
     
-    @lazy var viewModel = SignInViewModel()
+    lazy var viewModel = SignInViewModel()
     var mode: String { return self.viewModel.mode }
 
     override func viewDidLoad() {

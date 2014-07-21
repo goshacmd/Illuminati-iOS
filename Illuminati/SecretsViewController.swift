@@ -12,7 +12,7 @@ let kSecretCellID = "secretCell"
 
 class SecretsViewController: UITableViewController {
     
-    @lazy var secrets = Secret.all()
+    lazy var secrets = Secret.all()
     
     var firstTime = true
                             

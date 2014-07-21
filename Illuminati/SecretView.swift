@@ -15,22 +15,22 @@ class SecretView: UIView {
     // (used to determine the size of the caption label)
     var compactness: Float = 1
     
-    @lazy var backgroundView = UIView().noMask()
-    @lazy var captionLabel: UILabel = UILabel().align(.Center).multiline().noMask()
-    @lazy var likeCountLabel = UILabel().align(.Right).noMask()
-    @lazy var commentCountLabel = UILabel().align(.Right).noMask()
+    lazy var backgroundView = UIView().noMask()
+    lazy var captionLabel: UILabel = UILabel().align(.Center).multiline().noMask()
+    lazy var likeCountLabel = UILabel().align(.Right).noMask()
+    lazy var commentCountLabel = UILabel().align(.Right).noMask()
     
-    @lazy var secretTextColor: RACSignal =
+    lazy var secretTextColor: RACSignal =
         (self.backgroundView ~~ "backgroundColor")
             .ignore(nil)
             .map(^^self.textColorForBackground)
     
-    @lazy var secretFontSize: RACSignal =
+    lazy var secretFontSize: RACSignal =
         (self ~~ "compactness")
             // caption label size is ranging between 14 and 28, depending on compactness
             .map { 14 * (1 + ($0 as Float)) }
     
-    @lazy var secretFont: RACSignal =
+    lazy var secretFont: RACSignal =
         self.secretFontSize
             .map { UIFont(name: "DamascusBold", size: $0 as CGFloat) }
     

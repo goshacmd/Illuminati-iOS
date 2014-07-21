@@ -9,7 +9,7 @@
 import UIKit
 
 extension UILabel {
-    func setShadowColor(color: UIColor, radius: Float, opacity: Float, offset: CGSize = CGSizeZero) {
+    func setShadowColor(color: UIColor, radius: CGFloat, opacity: Float, offset: CGSize = CGSizeZero) {
         layer.shadowColor = color.CGColor
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity

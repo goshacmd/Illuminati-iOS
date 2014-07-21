@@ -11,20 +11,20 @@ import QuartzCore
 
 class SecretDetailView: UIView {
     
-    @lazy var secretView: SecretView = {
+    lazy var secretView: SecretView = {
         let a = UIScreen.mainScreen().bounds.width
         let view = SecretView(frame: CGRect(x: 0, y: 0, width: a, height: a))
         return view
     }()
     
-    @lazy var tableView = UITableView().noMask()
-    @lazy var commentField = UITextField().withPlaceholder("Comment...").noMask()
+    lazy var tableView = UITableView().noMask()
+    lazy var commentField = UITextField().withPlaceholder("Comment...").noMask()
     
-    @lazy var bottomView = UIView(frame: CGRectZero).noMask()
+    lazy var bottomView = UIView(frame: CGRectZero).noMask()
         .addTopBorder(UIScreen.mainScreen().bounds.width, height: 1, color: UIColor.lightGrayColor())
         .noMask()
     
-    @lazy var keyboardHeight: NSLayoutConstraint = {
+    lazy var keyboardHeight: NSLayoutConstraint = {
         return NSLayoutConstraint(item: self.bottomView, attribute: .Bottom, relatedBy: .Equal,
                                   toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
     }()
