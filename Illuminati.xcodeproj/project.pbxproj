@@ -29,6 +29,7 @@
 		CA92118019767E9E004D04CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA92117F19767E9E004D04CE /* Images.xcassets */; };
 		CA921196197688AE004D04CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA921195197688AE004D04CE /* User.swift */; };
 		CA9211981976897C004D04CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9211971976897C004D04CE /* SignInViewController.swift */; };
+		CAA82CC2197D4D2100C2AAEE /* UILabel+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA82CC1197D4D2100C2AAEE /* UILabel+Shadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CA92118519767E9E004D04CE /* IlluminatiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IlluminatiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA921195197688AE004D04CE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA9211971976897C004D04CE /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CAA82CC1197D4D2100C2AAEE /* UILabel+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Shadow.swift"; sourceTree = "<group>"; };
 		CEE53622234D4870987E9992 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */,
 				CA5603531978211F004DFEB8 /* Operators+NSLayoutConstraint.swift */,
 				CA02725C1977B5C400DB4787 /* UIButton+BorderedButton.swift */,
+				CAA82CC1197D4D2100C2AAEE /* UILabel+Shadow.swift */,
 				CA02725E1977BA6700DB4787 /* UIView+NoMask.swift */,
 				CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */,
 				CA0272591976E87600DB4787 /* UIColor+Ext.h */,
@@ -357,6 +360,7 @@
 				CA5BD737197C4A83009EB414 /* Comment.swift in Sources */,
 				CA921196197688AE004D04CE /* User.swift in Sources */,
 				CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */,
+				CAA82CC2197D4D2100C2AAEE /* UILabel+Shadow.swift in Sources */,
 				CA56206D197C1CDD00F4BEAD /* SecretDetailView.swift in Sources */,
 				CA0272581976DB9C00DB4787 /* RAC.swift in Sources */,
 			);

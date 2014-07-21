@@ -64,11 +64,7 @@ class SecretView: UIView {
         addSubview(likeCountLabel)
         addSubview(commentCountLabel)
         
-        captionLabel.layer.shadowColor = UIColor.blackColor().CGColor
-        captionLabel.layer.shadowRadius = 10
-        captionLabel.layer.shadowOpacity = 0.8
-        captionLabel.layer.shadowOffset = CGSizeZero
-        captionLabel.layer.masksToBounds = false
+        captionLabel.setShadowColor(UIColor.blackColor(), radius: 10, opacity: 0.8)
         
         secretFont ~> RAC(captionLabel, "font")
         
