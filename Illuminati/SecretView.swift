@@ -15,25 +15,10 @@ class SecretView: UIView {
     // (used to determine the size of the caption label)
     var compactness: Float = 1
     
-    @lazy var captionLabel: UILabel = {
-        let label = UILabel().noMask()
-        label.textAlignment = .Center
-        label.lineBreakMode = .ByWordWrapping
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    @lazy var likeCountLabel: UILabel = {
-        let label = UILabel().noMask()
-        label.textAlignment = .Right
-        return label
-    }()
-    
-    @lazy var commentCountLabel: UILabel = {
-        let label = UILabel().noMask()
-        label.textAlignment = .Right
-        return label
-    }()
+    @lazy var backgroundView = UIView().noMask()
+    @lazy var captionLabel: UILabel = UILabel().align(.Center).multiline().noMask()
+    @lazy var likeCountLabel = UILabel().align(.Right).noMask()
+    @lazy var commentCountLabel = UILabel().align(.Right).noMask()
     
     @lazy var secretTextColor: RACSignal =
         (self.backgroundView ~~ "backgroundColor")
@@ -49,12 +34,9 @@ class SecretView: UIView {
         self.secretFontSize
             .map { UIFont(name: "DamascusBold", size: $0 as CGFloat) }
     
-    var backgroundView: UIView
-    
     var disposables: [RACDisposable]
 
     init(frame: CGRect) {
-        backgroundView = UIView().noMask()
         disposables = []
         
         super.init(frame: frame)

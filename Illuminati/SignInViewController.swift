@@ -50,35 +50,34 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     @lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
     
     @lazy var emailTextField: UITextField = {
-        let field = UITextField().noMask()
-        field.keyboardType = .EmailAddress
-        field.autocapitalizationType = .None
-        field.autocorrectionType = .No
-        field.returnKeyType = .Next
-        field.placeholder = "Email address"
-        field.font = UIFont.systemFontOfSize(20)
-        field.delegate = self
-        return field
+        return UITextField()
+            .keyboard(.EmailAddress)
+            .returnKey(.Next)
+            .fontSize(20)
+            .withPlaceholder("Email address")
+            .autocap(.None).autocorrect(.No)
+            .delegateTo(self)
+            .noMask()
     }()
     
     @lazy var phoneTextField: UITextField = {
-        let field = UITextField().noMask()
-        field.keyboardType = .PhonePad
-        field.returnKeyType = .Next
-        field.placeholder = "Phone"
-        field.font = UIFont.systemFontOfSize(20)
-        field.delegate = self
-        return field
+        return UITextField()
+            .keyboard(.PhonePad)
+            .returnKey(.Next)
+            .fontSize(20)
+            .withPlaceholder("Phone")
+            .delegateTo(self)
+            .noMask()
         }()
     
     @lazy var passwordTextField: UITextField = {
-        let field = UITextField().noMask()
-        field.secureTextEntry = true
-        field.returnKeyType = .Go
-        field.placeholder = "Password"
-        field.font = UIFont.systemFontOfSize(20)
-        field.delegate = self
-        return field
+        return UITextField()
+            .secure()
+            .returnKey(.Go)
+            .fontSize(20)
+            .withPlaceholder("Password")
+            .delegateTo(self)
+            .noMask()
     }()
     
     @lazy var viewModel = SignInViewModel()

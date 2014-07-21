@@ -10,10 +10,9 @@ import UIKit
 
 class SecretCell: UITableViewCell {
     
-    var secretView: SecretView
+    var secretView = SecretView(frame: CGRectZero).noMask()
     
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
-        secretView = SecretView(frame: CGRectZero).noMask()
         super.init(style: .Default, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .None

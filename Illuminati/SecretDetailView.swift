@@ -17,27 +17,12 @@ class SecretDetailView: UIView {
         return view
     }()
     
-    @lazy var tableView: UITableView = {
-        let table = UITableView().noMask()
-        return table
-    }()
+    @lazy var tableView = UITableView().noMask()
+    @lazy var commentField = UITextField().withPlaceholder("Comment...").noMask()
     
-    @lazy var commentField: UITextField = {
-        let field = UITextField().noMask()
-        field.placeholder = "Comment..."
-        return field
-    }()
-    
-    @lazy var bottomView: UIView = {
-        let view = UIView(frame: CGRectZero).noMask()
-        
-        let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 1)
-        topBorder.backgroundColor = UIColor.lightGrayColor().CGColor
-        view.layer.addSublayer(topBorder)
-        
-        return view
-    }()
+    @lazy var bottomView = UIView(frame: CGRectZero).noMask()
+        .addTopBorder(UIScreen.mainScreen().bounds.width, height: 1, color: UIColor.lightGrayColor())
+        .noMask()
     
     @lazy var keyboardHeight: NSLayoutConstraint = {
         return NSLayoutConstraint(item: self.bottomView, attribute: .Bottom, relatedBy: .Equal,
