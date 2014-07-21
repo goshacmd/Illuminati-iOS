@@ -13,6 +13,8 @@ let kSecretCellID = "secretCell"
 class SecretsViewController: UITableViewController {
     
     @lazy var secrets = Secret.all()
+    
+    var firstTime = true
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +27,24 @@ class SecretsViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated);
+        super.viewDidAppear(animated)
         
-        // scroll to bottom
-        tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height - tableView.frame.size.height), animated: true)
+        if firstTime {
+            // scroll to last position only when appearing for the first time
+            scrollToLastPosition()
+            
+            firstTime = false
+        }
         
-        self.checkUser()
+        checkUser()
+    }
+    
+    func scrollToLastPosition() {
+        tableView.scrollToRowAtIndexPath(lastSeenItemIndex(), atScrollPosition: .Top, animated: false)
+    }
+    
+    func lastSeenItemIndex() -> NSIndexPath {
+        return NSIndexPath(forRow: 2, inSection: 0)
     }
     
     func signOut() {
