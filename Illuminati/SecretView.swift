@@ -49,10 +49,6 @@ class SecretView: UIView {
         self.secretFontSize
             .map { UIFont(name: "DamascusBold", size: $0 as CGFloat) }
     
-    var secret: Secret? {
-        didSet { self.bindSecretToView(secret) }
-    }
-    
     var backgroundView: UIView
     
     var disposables: [RACDisposable]
@@ -81,7 +77,7 @@ class SecretView: UIView {
         secretTextColor ~> RAC(commentCountLabel, "textColor")
     }
     
-    func bindSecretToView(_secret: Secret?) {
+    func bindSecret(_secret: Secret?) {
         for d in disposables {
             d.dispose()
         }

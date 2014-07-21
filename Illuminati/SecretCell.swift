@@ -12,11 +12,6 @@ class SecretCell: UITableViewCell {
     
     var secretView: SecretView
     
-    var secret: Secret? {
-        get { return secretView.secret }
-        set { secretView.secret = newValue }
-    }
-    
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
         secretView = SecretView(frame: CGRectZero).noMask()
         super.init(style: .Default, reuseIdentifier: reuseIdentifier)
@@ -26,8 +21,12 @@ class SecretCell: UITableViewCell {
         contentView.addSubview(secretView)
     }
     
+    func bindSecret(secret: Secret?) {
+        secretView.bindSecret(secret)
+    }
+    
     override func prepareForReuse() {
-        secretView.secret = nil
+        secretView.bindSecret(nil)
     }
     
     override class func requiresConstraintBasedLayout() -> Bool {

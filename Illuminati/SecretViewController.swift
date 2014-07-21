@@ -37,7 +37,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         let dv = detailView!
         
-        dv.secretView.secret = secret
+        dv.secretView.bindSecret(secret)
         
         dv.tableView.dataSource = self
         dv.tableView.delegate = self

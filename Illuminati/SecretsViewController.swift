@@ -74,7 +74,7 @@ class SecretsViewController: UITableViewController {
         let secret = secrets[indexPath.item]
         
         var cell = tableView.dequeueReusableCellWithIdentifier(kSecretCellID) as SecretCell
-        cell.secret = secret
+        cell.bindSecret(secret)
         
         return cell
     }
