@@ -65,6 +65,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         frame.size.height = min(max(100, newHeight), maxHeight)
         
         if (frame.size.height != dv.secretView.frame.height) {
+            dv.secretView.compactness = frame.size.height / maxHeight
             dv.secretView.frame = frame
         }
     }

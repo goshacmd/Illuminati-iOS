@@ -10,15 +10,14 @@ import UIKit
 
 class SecretView: UIView {
     
-    let metrics = [
-        "margin": 30,
-        "labelSpace": 15
-    ]
+    // indicates how compact the view is
+    // 1 - maximized, 0 - minimized, 0-1 - somewhere in between
+    // (used to determine the size of the caption label)
+    var compactness: Float = 1
     
     @lazy var captionLabel: UILabel = {
         let label = UILabel().noMask()
         label.textAlignment = .Center
-        label.font = UIFont(name: "DamascusBold", size: 28)
         label.lineBreakMode = .ByWordWrapping
         label.numberOfLines = 0
         return label
@@ -40,6 +39,15 @@ class SecretView: UIView {
         (self.backgroundView ~~ "backgroundColor")
             .ignore(nil)
             .map(^^self.textColorForBackground)
+    
+    @lazy var secretFontSize: RACSignal =
+        (self ~~ "compactness")
+            // caption label size is ranging between 14 and 28, depending on compactness
+            .map { 14 * (1 + ($0 as Float)) }
+    
+    @lazy var secretFont: RACSignal =
+        self.secretFontSize
+            .map { UIFont(name: "DamascusBold", size: $0 as CGFloat) }
     
     var secret: Secret? {
         didSet { self.bindSecretToView(secret) }
@@ -65,6 +73,8 @@ class SecretView: UIView {
         captionLabel.layer.shadowOpacity = 0.8
         captionLabel.layer.shadowOffset = CGSizeZero
         captionLabel.layer.masksToBounds = false
+        
+        secretFont ~> RAC(captionLabel, "font")
         
         secretTextColor ~> RAC(captionLabel, "textColor")
         secretTextColor ~> RAC(likeCountLabel, "textColor")
@@ -103,6 +113,11 @@ class SecretView: UIView {
             "likes": likeCountLabel,
             "comments": commentCountLabel,
             "back": backgroundView
+        ]
+        
+        let metrics = [
+            "margin": 10,
+            "labelSpace": 15
         ]
         
         addOverlayConstraints(backgroundView)
