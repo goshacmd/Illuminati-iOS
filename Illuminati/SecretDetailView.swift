@@ -18,7 +18,13 @@ class SecretDetailView: UIView {
     }()
     
     lazy var tableView = UITableView().noMask()
-    lazy var commentField = UITextField().withPlaceholder("Comment...").noMask()
+    lazy var commentField = UITextField().withPlaceholder("Write a comment (anonymous)...").noMask()
+    
+    lazy var postButton: UIButton = {
+        let button = UIButton.buttonWithType(.System).noMask() as UIButton
+        button.setTitle("Post", forState: .Normal)
+        return button
+    }()
     
     lazy var bottomView = UIView(frame: CGRectZero).noMask()
         .addTopBorder(UIScreen.mainScreen().bounds.width, height: 1, color: UIColor.lightGrayColor())
@@ -36,6 +42,7 @@ class SecretDetailView: UIView {
         addSubview(tableView)
         addSubview(bottomView)
         bottomView.addSubview(commentField)
+        bottomView.addSubview(postButton)
         
 //        tableView.separatorStyle = .None
 //        tableView.alwaysBounceVertical = false
@@ -53,7 +60,8 @@ class SecretDetailView: UIView {
             "secret": secretView,
             "table": tableView,
             "bottom": bottomView,
-            "comment": commentField
+            "comment": commentField,
+            "post": postButton
         ]
 
         addConstraints("|[secret]|" %%% (nil, nil, views))
@@ -61,8 +69,11 @@ class SecretDetailView: UIView {
         addConstraints("|[bottom]|" %%% (nil, nil, views))
         addConstraints("V:|[secret][table][bottom(40)]" %%% (nil, nil, views))
         
-        bottomView.addConstraints("|-[comment]-|" %%% (nil, nil, views))
+        bottomView.addConstraints("|-[comment]-[post]-|" %%% (nil, nil, views))
         bottomView.addConstraints("V:|[comment]|" %%% (nil, nil, views))
+        
+        bottomView.addConstraint(NSLayoutConstraint(item: postButton, attribute: .CenterY, relatedBy: .Equal, toItem: commentField, attribute: .CenterY, multiplier: 1, constant: 0))
+
         
         addConstraint(keyboardHeight)
     }

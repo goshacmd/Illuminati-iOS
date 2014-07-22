@@ -21,6 +21,10 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     
     var detailView: SecretDetailView?
     
+    lazy var postingEnabled: RACSignal =
+        self.detailView!.commentField.rac_textSignal()
+            .map { ($0 as NSString).length > 3 }
+    
     init(secret: Secret) {
         self.secret = secret
         
@@ -53,6 +57,8 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         automaticallyAdjustsScrollViewInsets = false
         
         observeKeyboard()
+        
+        postingEnabled ~> RAC(dv.postButton, "enabled")
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView!) {
