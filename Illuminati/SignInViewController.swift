@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kSignInCellID = "signInCell"
+
 func stringsForMode(mode: String) -> [String: String] {
     switch mode {
     case "signIn":
@@ -31,14 +33,14 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         "fvmargin": 8
     ]
     
-    lazy var footerButton: UIButton = {
+    lazy var actionButton: UIButton = {
         let button = UIButton.borderedButton().noMask()
         button.titleLabel.font = UIFont.systemFontOfSize(20)
         
         return button
     }()
     
-    lazy var footerSwitchButton: UIButton = {
+    lazy var switchButton: UIButton = {
         let button = UIButton.buttonWithType(.System).noMask() as UIButton
         button.setTitleColor(UIColor.grayColor(), forState: .Normal)
         button.titleLabel.textAlignment = .Center
@@ -46,8 +48,6 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         return button
     }()
-    
-    lazy var fw = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
     
     lazy var emailTextField: UITextField = {
         return UITextField()
@@ -88,13 +88,8 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         navigationController.navigationBarHidden = true
         
-        fw.addSubview(footerButton)
-        fw.addSubview(footerSwitchButton)
-        
-        layoutSubviews()
-        
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kSignInCellID)
         tableView.separatorStyle = .None
-        tableView.tableFooterView = fw
         
         automaticallyAdjustsScrollViewInsets = false
         
@@ -106,13 +101,13 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         let actionCommand = viewModel.actionCommand
         
-        footerButton.rac_command = actionCommand
+        actionButton.rac_command = actionCommand
         
         RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ actionCommand.executing
         
-        RAC(footerSwitchButton, "enabled") <~ actionCommand.executing.NOT()
+        RAC(switchButton, "enabled") <~ actionCommand.executing.NOT()
         
-        footerSwitchButton.addTarget(viewModel, action: "toggleMode", forControlEvents: .TouchUpInside)
+        switchButton.addTarget(viewModel, action: "toggleMode", forControlEvents: .TouchUpInside)
         
         actionCommand.executionSignals
             .flatten()
@@ -144,9 +139,9 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     func updateStrings() {
         let strings = stringsForMode(mode)
         
-        self.footerButton.setTitle(strings["button"], forState: .Normal)
-        self.footerButton.setTitle(strings["button"], forState: .Disabled)
-        self.footerSwitchButton.setTitle(strings["switch"], forState: .Normal)
+        actionButton.setTitle(strings["button"], forState: .Normal)
+        actionButton.setTitle(strings["button"], forState: .Disabled)
+        switchButton.setTitle(strings["switch"], forState: .Normal)
     }
     
     func updatePhoneRow() {
@@ -165,17 +160,6 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         tableView.endUpdates()
     }
     
-    func layoutSubviews() {
-        let views = [
-            "button": footerButton,
-            "switch_button": footerSwitchButton
-        ]
-        
-        fw.addConstraints("|-(hmargin)-[button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
-        fw.addConstraints("|-(hmargin)-[switch_button(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
-        fw.addConstraints("V:|-(fvmargin)-[button]-(fvmargin)-[switch_button]-(fvmargin)-|" %%% (nil, metrics, views))
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         emailTextField.becomeFirstResponder()
@@ -188,7 +172,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         case phoneTextField:
             passwordTextField.becomeFirstResponder()
         default:
-            footerButton.sendActionsForControlEvents(.TouchUpInside)
+            actionButton.sendActionsForControlEvents(.TouchUpInside)
         }
         
         return false
@@ -197,40 +181,38 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     // #pragma mark - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return mode == "signIn" ? 2 : 3
+        return section == 0 ? (mode == "signIn" ? 2 : 3) : 1
     }
 
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
-        let cellID = "signInCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell = tableView.dequeueReusableCellWithIdentifier(kSignInCellID, forIndexPath: indexPath) as UITableViewCell
 
-        if !cell {
-            let newCell = UITableViewCell(style: .Default, reuseIdentifier: cellID)
-            newCell.selectionStyle = .None
-            newCell.backgroundColor = UIColor.clearColor()
-            
-            cell = newCell
-        }
-        
-        configureCell(cell!, atIndexPath: indexPath)
+        cell.selectionStyle = .None
+        cell.backgroundColor = UIColor.clearColor()
+
+        configureCell(cell, atIndexPath: indexPath)
 
         return cell
     }
     
-    func getField(index: Int) -> UIView {
-        let signInFields = [emailTextField, passwordTextField]
-        let signUpFields = [emailTextField, phoneTextField, passwordTextField]
-        let fields = mode == "signIn" ? signInFields : signUpFields
-        
-        return fields[index]
+    func getField(indexPath: NSIndexPath) -> UIView {
+        if indexPath.section == 0 {
+            let signInFields = [emailTextField, passwordTextField]
+            let signUpFields = [emailTextField, phoneTextField, passwordTextField]
+            let fields = mode == "signIn" ? signInFields : signUpFields
+            
+            return fields[indexPath.row]
+        } else {
+            return actionButton
+        }
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let field = getField(indexPath.item)
+        let field = getField(indexPath)
         let content = cell.contentView
         
         content.addSubview(field)
@@ -238,18 +220,26 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         let views = [ "field": field ]
         
         content.addConstraints("|-(hmargin)-[field(>=150)]-(hmargin)-|" %%% (nil, metrics, views))
-        content.addConstraints("V:|-(vmargin)-[field]-(vmargin)-|" %%% (nil, metrics, views))
+        content.addConstraints("V:|-[field]-|" %%% (nil, metrics, views))
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let h = emailTextField.frame.height
-        
-        if h == 0 {
-            // not laid out, opt for default behavior
-            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-        }
+        let vmargin = CGFloat(metrics["vmargin"]!)
 
-        return 2 * CGFloat(metrics["vmargin"]!) + emailTextField.frame.height
+        return 2 * vmargin + 24
     }
-
+    
+    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? -1 : 1
+    }
+    
+    override func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 1 ? -1 : 1
+    }
+    
+    override func tableView(tableView: UITableView!, viewForFooterInSection section: Int) -> UIView! {
+        return section == 1 ? switchButton : nil
+    }
+    
 }

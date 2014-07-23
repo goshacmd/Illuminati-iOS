@@ -128,7 +128,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         let comment = comments[indexPath.item]
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(kCommentCellID) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(kCommentCellID, forIndexPath: indexPath) as UITableViewCell
 
         cell.selectionStyle = .None
         cell.textLabel.text = comment.text
