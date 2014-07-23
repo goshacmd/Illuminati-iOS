@@ -18,10 +18,14 @@ class SecretDetailView: UIView {
     }()
     
     lazy var tableView = UITableView().noMask()
-    lazy var commentField = UITextField().withPlaceholder("Write a comment (anonymous)...").noMask()
+    lazy var commentField = UITextField()
+        .withPlaceholder("Write a comment (anonymous)...")
+        .withFont("AvenirNextCondensed-Regular", ofSize: 16)
+        .noMask()
     
     lazy var postButton: UIButton = {
         let button = UIButton.buttonWithType(.System).noMask() as UIButton
+        button.titleLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
         button.setTitle("Post", forState: .Normal)
         return button
     }()

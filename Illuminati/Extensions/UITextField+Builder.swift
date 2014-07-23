@@ -48,4 +48,9 @@ extension UITextField {
         font = UIFont.systemFontOfSize(size)
         return self
     }
+    
+    func withFont(name: String, ofSize size: CGFloat) -> Self {
+        font = UIFont(name: name, size: size)
+        return self
+    }
 }
