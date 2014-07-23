@@ -132,6 +132,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
 
         cell.selectionStyle = .None
         cell.textLabel.text = comment.text
+        cell.textLabel.numberOfLines = 0
         
         return cell
     }
