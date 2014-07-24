@@ -15,15 +15,16 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     
     var secret: Secret
     
-    var comments: [Comment] {
-        get { return secret.comments }
-    }
+    var comments: [Comment] { return secret.comments }
     
     var detailView: SecretDetailView?
+    var secretView: SecretView { return detailView!.secretView }
+    var tableView: UITableView { return detailView!.tableView }
+    var commentField: UITextField { return detailView!.commentField }
+    var postButton: UIButton { return detailView!.postButton }
     
-    lazy var postingEnabled: RACSignal =
-        self.detailView!.commentField.rac_textSignal()
-            .map { ($0 as NSString).length > 3 }
+    lazy var viewModel: SecretViewModel =  { return SecretViewModel(secret: self.secret) }()
+    var postCommand: RACCommand { return self.viewModel.postCommand }
     
     init(secret: Secret) {
         self.secret = secret
@@ -39,14 +40,12 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dv = detailView!
+        secretView.bindSecret(secret)
         
-        dv.secretView.bindSecret(secret)
-        
-        dv.tableView.dataSource = self
-        dv.tableView.delegate = self
-        dv.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kCommentCellID)
-        dv.tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hideKeyboard"))
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kCommentCellID)
+        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hideKeyboard"))
         
         navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController.navigationBar.shadowImage = UIImage()
@@ -58,7 +57,22 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         observeKeyboard()
         
-        postingEnabled ~> RAC(dv.postButton, "enabled")
+        RAC(viewModel, "commentText") <~ commentField.rac_textSignal()
+        
+        postButton.rac_command = postCommand
+        
+        RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ postCommand.executing
+        RAC(commentField, "enabled") <~ postCommand.executing.NOT()
+        
+        postCommand.executionSignals
+            .flatten()
+            .onMainThread()
+            .subscribeNext { _ in
+                self.view.endEditing(true)
+                self.commentField.text = ""
+                self.tableView.reloadData()
+            }
+
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView!) {

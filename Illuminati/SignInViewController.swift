@@ -82,32 +82,27 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
     
     lazy var viewModel = SignInViewModel()
     var mode: String { return self.viewModel.mode }
+    var actionCommand: RACCommand { return self.viewModel.actionCommand }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController.navigationBarHidden = true
-        
+        navigationController.view.backgroundColor = UIColor.clearColor()
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kSignInCellID)
         tableView.separatorStyle = .None
-        
         automaticallyAdjustsScrollViewInsets = false
         
-        navigationController.view.backgroundColor = UIColor.clearColor()
+        switchButton.addTarget(viewModel, action: "toggleMode", forControlEvents: .TouchUpInside)
         
         RAC(viewModel, "email") <~ emailTextField.rac_textSignal()
         RAC(viewModel, "phone") <~ phoneTextField.rac_textSignal()
         RAC(viewModel, "password") <~ passwordTextField.rac_textSignal()
         
-        let actionCommand = viewModel.actionCommand
-        
         actionButton.rac_command = actionCommand
         
         RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ actionCommand.executing
-        
         RAC(switchButton, "enabled") <~ actionCommand.executing.NOT()
-        
-        switchButton.addTarget(viewModel, action: "toggleMode", forControlEvents: .TouchUpInside)
         
         actionCommand.executionSignals
             .flatten()
