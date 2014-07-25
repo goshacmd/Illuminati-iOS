@@ -12,10 +12,14 @@ class SecretViewModel: NSObject {
     var commentText = ""
     
     lazy var postingEnabled: RACSignal = (self ~~ "commentText")
-        .map { ($0 as NSString).length > 3 }
+        .mapAs(self.isValidComment)
     
     init(secret: Secret) {
         self.secret = secret
+    }
+    
+    lazy var postCommand: RACCommand = RACCommand(enabled: self.postingEnabled) { _ in
+        return self.postComment()
     }
     
     func postComment() -> RACSignal {
@@ -35,8 +39,7 @@ class SecretViewModel: NSObject {
         }
     }
     
-    lazy var postCommand: RACCommand = RACCommand(enabled: self.postingEnabled) { _ in
-        return self.postComment()
+    func isValidComment(comment: NSString) -> NSNumber {
+        return comment.length > 3
     }
-    
 }

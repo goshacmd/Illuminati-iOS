@@ -23,7 +23,7 @@ class SecretView: UIView {
     lazy var secretTextColor: RACSignal =
         (self.backgroundView ~~ "backgroundColor")
             .ignore(nil)
-            .map(^^self.textColorForBackground)
+            .mapAs(self.textColorForBackground)
     
     lazy var secretFontSize: RACSignal =
         (self ~~ "compactness")

@@ -20,7 +20,7 @@
 		CA56206F197C229B00F4BEAD /* SecretView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56206E197C229B00F4BEAD /* SecretView.swift */; };
 		CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */; };
 		CA5BD737197C4A83009EB414 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5BD736197C4A83009EB414 /* Comment.swift */; };
-		CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */; };
+		CA6DC22C19785D130095CEA1 /* RACSignal+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22B19785D130095CEA1 /* RACSignal+Exts.swift */; };
 		CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */; };
 		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
 		CA8FC60E1976AF7700F2A150 /* SecretCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60D1976AF7700F2A150 /* SecretCell.swift */; };
@@ -62,7 +62,7 @@
 		CA56206E197C229B00F4BEAD /* SecretView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretView.swift; sourceTree = "<group>"; };
 		CA562070197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintHelpers.swift"; sourceTree = "<group>"; };
 		CA5BD736197C4A83009EB414 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+MainThread.swift"; sourceTree = "<group>"; };
+		CA6DC22B19785D130095CEA1 /* RACSignal+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Exts.swift"; sourceTree = "<group>"; };
 		CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators+RAC.swift"; sourceTree = "<group>"; };
 		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		CA8FC60D1976AF7700F2A150 /* SecretCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretCell.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 			children = (
 				CA0272571976DB9C00DB4787 /* RAC.swift */,
 				CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */,
-				CA6DC22B19785D130095CEA1 /* RACSignal+MainThread.swift */,
+				CA6DC22B19785D130095CEA1 /* RACSignal+Exts.swift */,
 				CA5603531978211F004DFEB8 /* Operators+NSLayoutConstraint.swift */,
 				CA02725C1977B5C400DB4787 /* UIButton+BorderedButton.swift */,
 				CAA82CC3197D4E2500C2AAEE /* UITextField+Builder.swift */,
@@ -367,7 +367,7 @@
 				CA5603541978211F004DFEB8 /* Operators+NSLayoutConstraint.swift in Sources */,
 				CA02ECDF1977F28C0074FA6A /* SignInViewModel.swift in Sources */,
 				CA562071197C2A5400F4BEAD /* UIView+ConstraintHelpers.swift in Sources */,
-				CA6DC22C19785D130095CEA1 /* RACSignal+MainThread.swift in Sources */,
+				CA6DC22C19785D130095CEA1 /* RACSignal+Exts.swift in Sources */,
 				CAA82CC8197D4FB200C2AAEE /* UILabel+Builder.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
 				CA5BD737197C4A83009EB414 /* Comment.swift in Sources */,

@@ -14,11 +14,11 @@ class SignInViewModel: NSObject {
     var password = ""
     
     lazy var validEmailSignal: RACSignal = (self ~~ "email")
-        .map(^^self.isValidEmail)
+        .mapAs(self.isValidEmail)
     lazy var validPasswordSignal: RACSignal = (self ~~ "password")
-        .map(^^self.isValidPassword)
+        .mapAs(self.isValidPassword)
     lazy var validPhoneSignal: RACSignal = (self ~~ "phone")
-        .map(^^self.isValidPhone)
+        .mapAs(self.isValidPhone)
     lazy var isSignInSignal: RACSignal = (self ~~ "mode").map { $0 as String == "signIn" }
     
     lazy var validPhoneSignUpSignal: RACSignal = RACSignal
@@ -45,15 +45,15 @@ class SignInViewModel: NSObject {
         self.mode = self.mode == "signIn" ? "signUp" : "signIn"
     }
     
-    func isValidEmail(email: NSString) -> Bool {
+    func isValidEmail(email: NSString) -> NSNumber {
         return email.length > 3 && (email.rangeOfString("@").length != 0)
     }
     
-    func isValidPhone(phone: NSString) -> Bool {
+    func isValidPhone(phone: NSString) -> NSNumber {
         return phone.length > 5
     }
     
-    func isValidPassword(password: NSString) -> Bool {
+    func isValidPassword(password: NSString) -> NSNumber {
         return password.length > 3
     }
     

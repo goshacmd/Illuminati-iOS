@@ -114,8 +114,7 @@ class SignInViewController: UITableViewController, UITextFieldDelegate {
         
         actionCommand.errors
             .onMainThread()
-            .subscribeNext {
-                let error = $0 as NSError
+            .subscribeNextAs { (error: NSError) in
                 let title = error.userInfo["title"] as? NSString
                 let message = error.userInfo["message"] as? NSString
                 UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK").show()

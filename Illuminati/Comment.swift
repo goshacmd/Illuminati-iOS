@@ -28,6 +28,7 @@ class Comment: NSObject {
     var text: String
     
     init(avatar: Avatar, text: String) {
+        self.avatar = avatar
         self.text = text
     }
     

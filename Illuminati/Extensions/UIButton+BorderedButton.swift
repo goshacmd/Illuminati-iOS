@@ -19,8 +19,7 @@ extension UIButton {
         // the border color should be the color of the text label
         (button.titleLabel ~~ "textColor")
             .onMainThread()
-            .subscribeNext {
-                let color = $0 as UIColor
+            .subscribeNextAs { (color: UIColor) in
                 button.layer.borderColor = color.CGColor
             }
         
