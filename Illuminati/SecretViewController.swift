@@ -44,7 +44,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: kCommentCellID)
+        tableView.registerClass(CommentTableViewCell.classForCoder(), forCellReuseIdentifier: kCommentCellID)
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "hideKeyboard"))
         
         navigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
@@ -142,12 +142,9 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         let comment = comments[indexPath.item]
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(kCommentCellID, forIndexPath: indexPath) as UITableViewCell
-
-        cell.selectionStyle = .None
-        cell.textLabel.text = comment.text
-        cell.textLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: 16)
-        cell.textLabel.numberOfLines = 0
+        var cell = tableView.dequeueReusableCellWithIdentifier(kCommentCellID, forIndexPath: indexPath) as CommentTableViewCell
+        
+        cell.bindComment(comment)
         
         return cell
     }

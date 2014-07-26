@@ -23,12 +23,14 @@
 		CA6DC22C19785D130095CEA1 /* RACSignal+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22B19785D130095CEA1 /* RACSignal+Exts.swift */; };
 		CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */; };
 		CA8FC60C1976AE7700F2A150 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60B1976AE7700F2A150 /* Secret.swift */; };
-		CA8FC60E1976AF7700F2A150 /* SecretCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60D1976AF7700F2A150 /* SecretCell.swift */; };
+		CA8FC60E1976AF7700F2A150 /* SecretTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FC60D1976AF7700F2A150 /* SecretTableViewCell.swift */; };
 		CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117819767E9E004D04CE /* AppDelegate.swift */; };
 		CA92117B19767E9E004D04CE /* SecretsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92117A19767E9E004D04CE /* SecretsViewController.swift */; };
 		CA92118019767E9E004D04CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA92117F19767E9E004D04CE /* Images.xcassets */; };
 		CA921196197688AE004D04CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA921195197688AE004D04CE /* User.swift */; };
 		CA9211981976897C004D04CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9211971976897C004D04CE /* SignInViewController.swift */; };
+		CAA262A51983C970001CE60E /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA262A41983C970001CE60E /* AvatarView.swift */; };
+		CAA262A71983CE60001CE60E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA262A61983CE60001CE60E /* CommentTableViewCell.swift */; };
 		CAA82CC2197D4D2100C2AAEE /* UILabel+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA82CC1197D4D2100C2AAEE /* UILabel+Shadow.swift */; };
 		CAA82CC4197D4E2500C2AAEE /* UITextField+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA82CC3197D4E2500C2AAEE /* UITextField+Builder.swift */; };
 		CAA82CC8197D4FB200C2AAEE /* UILabel+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA82CC7197D4FB200C2AAEE /* UILabel+Builder.swift */; };
@@ -65,7 +67,7 @@
 		CA6DC22B19785D130095CEA1 /* RACSignal+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Exts.swift"; sourceTree = "<group>"; };
 		CA6DC22D19785D3B0095CEA1 /* Operators+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators+RAC.swift"; sourceTree = "<group>"; };
 		CA8FC60B1976AE7700F2A150 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
-		CA8FC60D1976AF7700F2A150 /* SecretCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretCell.swift; sourceTree = "<group>"; };
+		CA8FC60D1976AF7700F2A150 /* SecretTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretTableViewCell.swift; sourceTree = "<group>"; };
 		CA92117319767E9E004D04CE /* Illuminati.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Illuminati.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA92117719767E9E004D04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA92117819767E9E004D04CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		CA92118519767E9E004D04CE /* IlluminatiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IlluminatiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA921195197688AE004D04CE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA9211971976897C004D04CE /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CAA262A41983C970001CE60E /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		CAA262A61983CE60001CE60E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		CAA82CC1197D4D2100C2AAEE /* UILabel+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Shadow.swift"; sourceTree = "<group>"; };
 		CAA82CC3197D4E2500C2AAEE /* UITextField+Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Builder.swift"; sourceTree = "<group>"; };
 		CAA82CC7197D4FB200C2AAEE /* UILabel+Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Builder.swift"; sourceTree = "<group>"; };
@@ -160,9 +164,11 @@
 		CA0272661977DDF600DB4787 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA8FC60D1976AF7700F2A150 /* SecretCell.swift */,
 				CA56206E197C229B00F4BEAD /* SecretView.swift */,
 				CA56206C197C1CDD00F4BEAD /* SecretDetailView.swift */,
+				CAA262A41983C970001CE60E /* AvatarView.swift */,
+				CA8FC60D1976AF7700F2A150 /* SecretTableViewCell.swift */,
+				CAA262A61983CE60001CE60E /* CommentTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -356,7 +362,7 @@
 			files = (
 				CA56206F197C229B00F4BEAD /* SecretView.swift in Sources */,
 				CA0272611977DAF900DB4787 /* UsersService.swift in Sources */,
-				CA8FC60E1976AF7700F2A150 /* SecretCell.swift in Sources */,
+				CA8FC60E1976AF7700F2A150 /* SecretTableViewCell.swift in Sources */,
 				CA02725F1977BA6700DB4787 /* UIView+NoMask.swift in Sources */,
 				CA02725B1976E87E00DB4787 /* UIColor+Ext.m in Sources */,
 				CA02725D1977B5C400DB4787 /* UIButton+BorderedButton.swift in Sources */,
@@ -371,10 +377,12 @@
 				CAA82CC8197D4FB200C2AAEE /* UILabel+Builder.swift in Sources */,
 				CA92117919767E9E004D04CE /* AppDelegate.swift in Sources */,
 				CA5BD737197C4A83009EB414 /* Comment.swift in Sources */,
+				CAA262A51983C970001CE60E /* AvatarView.swift in Sources */,
 				CAB55B0C19817E46004BB3F4 /* SecretViewModel.swift in Sources */,
 				CA921196197688AE004D04CE /* User.swift in Sources */,
 				CAA82CC4197D4E2500C2AAEE /* UITextField+Builder.swift in Sources */,
 				CA6DC22E19785D3B0095CEA1 /* Operators+RAC.swift in Sources */,
+				CAA262A71983CE60001CE60E /* CommentTableViewCell.swift in Sources */,
 				CAA82CC2197D4D2100C2AAEE /* UILabel+Shadow.swift in Sources */,
 				CA56206D197C1CDD00F4BEAD /* SecretDetailView.swift in Sources */,
 				CAA82CCA197D50D200C2AAEE /* UIView+TopBorder.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  SecretCell.swift
+//  SecretTableViewCell.swift
 //  Illuminati
 //
 //  Created by Gosha Arinich on 7/16/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecretCell: UITableViewCell {
+class SecretTableViewCell: UITableViewCell {
     
     var secretView = SecretView(frame: CGRectZero).noMask()
     

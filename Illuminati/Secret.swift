@@ -34,7 +34,7 @@ class Secret: NSObject {
         let av1 = Avatar.Regular(.Planet, .Blue)
         let av2 = Avatar.Regular(.Lightning, .Red)
         let av3 = Avatar.Regular(.Bug, .Green)
-        let av4 = Avatar.Regular(.Plug, .Violet)
+        let av4 = Avatar.Regular(.Plug, .Purple)
         let av5 = Avatar.Regular(.Star, .Orange)
         let av6 = Avatar.Regular(.Cat, .Blue)
         

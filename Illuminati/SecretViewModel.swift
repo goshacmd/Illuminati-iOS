@@ -27,7 +27,7 @@ class SecretViewModel: NSObject {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)), dispatch_get_main_queue()) {
                 let secret = self.secret
                 let text = self.commentText
-                let avatar = Avatar.Regular(.Owl, .Violet)
+                let avatar = Avatar.Regular(.Owl, .Purple)
                 let comment = Comment(avatar: avatar, text: text)
                 secret.commentCount += 1
                 secret.comments.append(comment)
