@@ -26,6 +26,8 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
     lazy var viewModel: SecretViewModel =  { return SecretViewModel(secret: self.secret) }()
     var postCommand: RACCommand { return self.viewModel.postCommand }
     
+    var na: RACDisposable?
+    
     init(secret: Secret) {
         self.secret = secret
         
@@ -61,7 +63,7 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
         
         postButton.rac_command = postCommand
         
-        RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ postCommand.executing
+        na = RAC(UIApplication.sharedApplication(), "networkActivityIndicatorVisible") <~ postCommand.executing
         RAC(commentField, "enabled") <~ postCommand.executing.NOT()
         
         postCommand.executionSignals
@@ -73,6 +75,10 @@ class SecretViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
 
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        na?.dispose()
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView!) {
