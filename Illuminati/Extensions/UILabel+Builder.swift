@@ -19,4 +19,9 @@ extension UILabel {
         numberOfLines = 0
         return self
     }
+    
+    func color(color: UIColor) -> Self {
+        textColor = color
+        return self
+    }
 }

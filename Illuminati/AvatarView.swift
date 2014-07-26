@@ -13,13 +13,31 @@ class AvatarView: UIView {
     var avatar: Avatar? {
         didSet { updateView() }
     }
+    
+    var letterBox = UILabel(frame: CGRectZero)
+        .color(UIColor.whiteColor())
+        .align(.Center)
+        .noMask()
 
     init(frame: CGRect) {
         super.init(frame: frame)
+        
+        addSubview(letterBox)
     }
 
     func updateView() {
         backgroundColor = avatar!.background()
+        letterBox.text = avatar!.letter()
+    }
+    
+    override class func requiresConstraintBasedLayout() -> Bool {
+        return true
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        addOverlayConstraints(letterBox)
     }
 
 }

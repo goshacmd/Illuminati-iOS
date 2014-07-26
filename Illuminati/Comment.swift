@@ -51,8 +51,15 @@ enum Avatar {
     
     func background() -> UIColor {
         switch self {
-        case let .Regular(object, color): return color.uicolor()
-        case     .King:                   return UIColor.blackColor()
+        case let .Regular(_, color): return color.uicolor()
+        case     .King:              return UIColor.blackColor()
+        }
+    }
+    
+    func letter() -> String {
+        switch self {
+        case let .Regular(object, _): return "O"
+        case                   .King: return "K"
         }
     }
     
